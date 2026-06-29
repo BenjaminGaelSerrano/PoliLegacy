@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://cq4w8ty0vn2xs"]
+
+[ext_resource type="Script" path="res://Scripts/coleccionable.gd" id="1_v3qhe"]
+[ext_resource type="Texture2D" uid="uid://bugt7f8ekrbi6" path="res://icon.svg" id="2_m8tld"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p5w2k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_m8tld")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x6n0y"]
+radius = 16.0
+
+[node name="Coleccionable" type="Area2D"]
+script = ExtResource("1_v3qhe")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_p5w2k")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_x6n0y")
