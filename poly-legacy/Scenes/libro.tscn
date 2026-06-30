@@ -1,13 +1,21 @@
 [gd_scene format=3 uid="uid://biht5yxyu4b6k"]
 
 [ext_resource type="Script" uid="uid://c5gg4vglua5yo" path="res://Scripts/libro.gd" id="1_a5s3w"]
+[ext_resource type="Texture2D" uid="uid://n4o8yn2m0c71" path="res://Assets/Jugador.jpg" id="2_21qqq"]
 
-[node name="Libro" type="Node2D" unique_id=1449031924]
+[sub_resource type="AtlasTexture" id="AtlasTexture_vvocy"]
+atlas = ExtResource("2_21qqq")
+region = Rect2(904, 278, 113, 139)
+
+[node name="Libro" type="Node2D" unique_id=896181847]
 script = ExtResource("1_a5s3w")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1823141372]
+texture = SubResource("AtlasTexture_vvocy")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1166198830]
+[node name="Area2D" type="Area2D" parent="." unique_id=1089033269]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1166198830]
 
 [node name="Label" type="Label" parent="." unique_id=1314818166]
 visible = false
