@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://b8k3jzr6apld1"]
+
+[ext_resource type="Script" uid="uid://hdcpj02p8tpt" path="res://Scripts/guada_boss.gd" id="1_yq2nx"]
+[ext_resource type="Texture2D" uid="uid://bugt7f8ekrbi6" path="res://icon.svg" id="2_8wd3k"]
+[ext_resource type="PackedScene" uid="uid://cp200vyf0nbid" path="res://Scenes/jugador.tscn" id="3_4y5sq"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oa1vr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_8wd3k")
+}],
+"loop": false,
+"name": &"disparar",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_8wd3k")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_8wd3k")
+}],
+"loop": false,
+"name": &"morir",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_8wd3k")
+}],
+"loop": false,
+"name": &"recibir_danio",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4y5sq"]
+radius = 410.14267
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3mt7p"]
+radius = 64.0
+
+[node name="GuadaBoss" type="Node2D" unique_id=873231345 groups=["enemigos"]]
+script = ExtResource("1_yq2nx")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=9127855]
+sprite_frames = SubResource("SpriteFrames_oa1vr")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="AreaDeteccion" type="Area2D" parent="." unique_id=389722078]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDeteccion" unique_id=1712855066]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_4y5sq")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1508242851 groups=["enemigos"]]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=139582993]
+shape = SubResource("CircleShape2D_3mt7p")
+
+[node name="BarraVida" type="ProgressBar" parent="." unique_id=1532820249]
+offset_left = -50.0
+offset_top = -70.0
+offset_right = 50.0
+offset_bottom = -55.0
+value = 100.0
+show_percentage = false
+
+[node name="TimerInicio" type="Timer" parent="." unique_id=1899275924]
+wait_time = 2.0
+one_shot = true
+
+[node name="TimerAtaque" type="Timer" parent="." unique_id=1093956233]
+wait_time = 2.0
+one_shot = true
+
+[node name="TimerDobleDisparo" type="Timer" parent="." unique_id=461259863]
+wait_time = 0.4
+one_shot = true
+
+[node name="Jugador" parent="." unique_id=1860810349 instance=ExtResource("3_4y5sq")]
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_al_terminar_animacion"]
+[connection signal="body_entered" from="AreaDeteccion" to="." method="_al_entrar_al_area"]
+[connection signal="timeout" from="TimerInicio" to="." method="_al_terminar_timer_inicio"]
+[connection signal="timeout" from="TimerAtaque" to="." method="_al_terminar_timer_ataque"]
+[connection signal="timeout" from="TimerDobleDisparo" to="." method="_al_terminar_timer_doble_disparo"]
