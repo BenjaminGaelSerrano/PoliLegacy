@@ -1,0 +1,12 @@
+extends Node2D
+signal jugadorSeMueve
+signal jugadorHablaConNpc
+signal libroEntregado
+signal libroAgarrado
+signal libroLeido
+signal disparo
+signal tutorialCompletado
+signal jefeDerrotado
+signal jugadorRecibioDanio
+signal jugadorMuerto
+signal coleccionableObtenido
