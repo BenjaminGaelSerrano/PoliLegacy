@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://dmqmynmhxryqp"]
-
-[ext_resource type="Script" uid="uid://daovornbrclx2" path="res://Scripts/manejadorJuego.gd" id="1_3weuy"]
-
-[node name="ManejadorNivel" type="Node2D" unique_id=885869337]
-script = ExtResource("1_3weuy")
