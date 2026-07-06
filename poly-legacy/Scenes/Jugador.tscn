@@ -9,3 +9,13 @@
 [node name="Area2D" type="Area2D" parent="." unique_id=1592946506]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1899152955]
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1546605459]
+
+[node name="ColorRect" type="ColorRect" parent="Node2D" unique_id=934599257]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect2" type="ColorRect" parent="Node2D" unique_id=398389531]
+offset_right = 40.0
+offset_bottom = 40.0
