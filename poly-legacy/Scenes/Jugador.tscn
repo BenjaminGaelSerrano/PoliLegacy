@@ -72,6 +72,7 @@ shape = SubResource("RectangleShape2D_j6x4n")
 script = ExtResource("2_g1u6r")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1030613504]
+zoom = Vector2(0.5, 0.5)
 
 [node name="TimerDisparo" type="Timer" parent="." unique_id=899971197]
 wait_time = 1.5
@@ -84,6 +85,15 @@ offset_left = 10.0
 offset_top = 10.0
 offset_right = 210.0
 offset_bottom = 30.0
+value = 100.0
+show_percentage = false
+
+[node name="BarraUlti" type="ProgressBar" parent="CanvasLayer" unique_id=668304533]
+visible = false
+offset_left = 10.0
+offset_top = 36.0
+offset_right = 210.0
+offset_bottom = 52.0
 value = 100.0
 show_percentage = false
 

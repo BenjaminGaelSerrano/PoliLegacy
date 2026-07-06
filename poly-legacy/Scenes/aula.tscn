@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dbapi018k37k1" path="res://Assets/MapaGodotLevel1.png" id="1_iaxfm"]
 [ext_resource type="PackedScene" uid="uid://cp200vyf0nbid" path="res://Scenes/Jugador.tscn" id="2_h05tl"]
 [ext_resource type="PackedScene" uid="uid://b8k3j0r6apld1" path="res://Scenes/guada_boss.tscn" id="3_crs3d"]
+[ext_resource type="PackedScene" uid="uid://dl7m5tpq0c2fj" path="res://Scenes/Inventario.tscn" id="4_inv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dqnrw"]
 size = Vector2(1220, 20)
@@ -92,3 +93,5 @@ position = Vector2(3, 759)
 
 [node name="GuadaBoss" parent="." unique_id=873231345 instance=ExtResource("3_crs3d")]
 position = Vector2(240, -635)
+
+[node name="InventarioUI" parent="." instance=ExtResource("4_inv")]

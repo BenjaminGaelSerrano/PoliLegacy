@@ -14,7 +14,6 @@ const Coleccionable = preload("res://Scenes/coleccionable_guada.tscn")
 var vida_maxima = 100
 var recarga_ataque = 2.0
 var recarga_ataque_fase2 = 0.75
-var espera_doble_disparo = 0.4
 var cantidad_proyectiles_explosion = 8
 var numero_nivel = 1
 
@@ -27,14 +26,6 @@ var muriendo = false
 
 func _ready():
 	vida = vida_maxima
-	barra_vida.max_value = vida_maxima
-	barra_vida.value = vida
-
-	timer_inicio.wait_time = 2.0
-	timer_inicio.one_shot = true
-	timer_ataque.one_shot = true
-	timer_doble_disparo.wait_time = espera_doble_disparo
-	timer_doble_disparo.one_shot = true
 
 	sprite.play("idle")
 
@@ -140,13 +131,15 @@ func _morir():
 	area_deteccion.monitoring = false
 	sprite.play("morir")
 
+	await get_tree().create_timer(5.0).timeout
+	BusEventos.jefeDerrotado.emit(numero_nivel)
+	var coleccionable = Coleccionable.instantiate()
+	get_parent().add_child(coleccionable)
+	coleccionable.global_position = global_position
+	queue_free()
+
 func _al_terminar_animacion():
-	if sprite.animation == "morir":
-		await get_tree().create_timer(5.0).timeout
-		BusEventos.jefeDerrotado.emit(numero_nivel)
-		var coleccionable = Coleccionable.instantiate()
-		get_parent().add_child(coleccionable)
-		coleccionable.global_position = global_position
-		queue_free()
-	elif sprite.animation == "disparar" or sprite.animation == "recibir_danio":
+	if muriendo:
+		return
+	if sprite.animation == "disparar" or sprite.animation == "recibir_danio":
 		sprite.play("idle")

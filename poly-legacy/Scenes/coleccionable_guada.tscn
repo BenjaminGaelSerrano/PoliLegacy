@@ -15,7 +15,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_x6n0y"]
-radius = 16.0
+radius = 48.0
 
 [node name="Coleccionable" type="Area2D" unique_id=1582986775]
 script = ExtResource("1_v3qhe")
@@ -29,3 +29,15 @@ autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=916661217]
 shape = SubResource("CircleShape2D_x6n0y")
+
+[node name="Aviso" type="Label" parent="." unique_id=771043829]
+visible = false
+offset_left = -40.0
+offset_top = -55.0
+offset_right = 40.0
+offset_bottom = -35.0
+text = "Apretá E"
+horizontal_alignment = 1
+
+[connection signal="body_entered" from="." to="." method="_al_entrar_cuerpo"]
+[connection signal="body_exited" from="." to="." method="_al_salir_cuerpo"]

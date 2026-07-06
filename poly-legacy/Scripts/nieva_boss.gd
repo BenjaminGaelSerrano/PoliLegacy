@@ -11,7 +11,6 @@ const Coleccionable = preload("res://Scenes/coleccionable_guada.tscn")
 var vida_maxima = 100
 var velocidad = 70.0
 var velocidad_fase2 = 120.0
-var recarga_golpe = 1.0
 var danio_contacto = 10
 var numero_nivel = 2
 
@@ -24,13 +23,6 @@ var muriendo = false
 
 func _ready():
 	vida = vida_maxima
-	barra_vida.max_value = vida_maxima
-	barra_vida.value = vida
-
-	timer_inicio.wait_time = 2.0
-	timer_inicio.one_shot = true
-	timer_golpe.wait_time = recarga_golpe
-	timer_golpe.one_shot = true
 
 	objetivo = _buscar_jugador()
 

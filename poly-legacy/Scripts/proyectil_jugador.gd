@@ -5,13 +5,10 @@ extends Area2D
 
 var velocidad = 500.0
 var danio = 10
-var duracion = 2.5
 var direccion = Vector2.ZERO
 
 func _ready():
 	sprite.play("idle")
-	timer_vida.one_shot = true
-	timer_vida.wait_time = duracion
 	timer_vida.start()
 
 func _physics_process(delta):

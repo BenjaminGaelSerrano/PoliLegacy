@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://dbmh4s47qwsp0"]
+
+[ext_resource type="Script" uid="uid://b2pwlyo514kbs" path="res://Scripts/proyectil_jugador.gd" id="1_k7sm3"]
+[ext_resource type="Texture2D" uid="uid://bugt7f8ekrbi6" path="res://icon.svg" id="2_q9vbz"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ulti1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_q9vbz")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ulti1"]
+size = Vector2(64, 48)
+
+[node name="ProyectilUlti" type="Area2D" unique_id=641228907 groups=["ulti"]]
+collision_layer = 8
+collision_mask = 5
+script = ExtResource("1_k7sm3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1055079280]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_ulti1")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=282429024]
+shape = SubResource("RectangleShape2D_ulti1")
+
+[node name="TimerVida" type="Timer" parent="." unique_id=105131882]
+wait_time = 2.5
+one_shot = true
+
+[connection signal="area_entered" from="." to="." method="_al_entrar_area"]
+[connection signal="body_shape_entered" from="." to="." method="_al_chocar_cuerpo"]
+[connection signal="timeout" from="TimerVida" to="." method="_al_expirar"]

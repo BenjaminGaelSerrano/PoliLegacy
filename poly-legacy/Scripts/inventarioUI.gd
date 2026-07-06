@@ -1,21 +1,29 @@
 extends CanvasLayer
-@onready var panel=$PanelContainer
-@onready var lista=$PanelContainer/VBoxContainer
-var abierto=false
-func _ready() -> void:
-	panel.visible=false
+
+@onready var grilla = $Panel/Grilla
+
+var abierto = false
+
 func _input(event):
-	if not (event is InputEventKey):
-		return
-	if event.is_action_just_pressed("Inventario"):
-		abierto = not abierto
-		panel.visible = abierto
-		if abierto:
-			actualizarLista()
-func actualizarLista():
-	for child in lista.get_children():
-		child.queue_free()   
-	for item in Inventario.items:
-		var label = Label.new()
-		label.text = item.datos.get("titulo", item.EspacioEnElInventario)
-		lista.add_child(label)
+	if event.is_action_pressed("Inventario"):
+		_alternar()
+
+func _alternar():
+	abierto = not abierto
+	visible = abierto
+	get_tree().paused = abierto
+	if abierto:
+		_refrescar()
+
+func _refrescar():
+	var slots = grilla.get_children()
+	for i in range(slots.size()):
+		var slot = slots[i]
+		if i < Inventario.items.size():
+			var item = Inventario.items[i]
+			if item.datos.has("icono"):
+				slot.texture = load(item.datos["icono"])
+			slot.tooltip_text = item.datos.get("titulo", item.EspacioEnElInventario)
+		else:
+			slot.texture = null
+			slot.tooltip_text = ""
