@@ -19,7 +19,7 @@ size = Vector2(32, 24)
 
 [node name="ProyectilJugador" type="Area2D" unique_id=308370533]
 collision_layer = 8
-collision_mask = 4
+collision_mask = 5
 script = ExtResource("1_k7sm3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1055079279]
@@ -31,8 +31,9 @@ autoplay = "idle"
 shape = SubResource("RectangleShape2D_0jf4d")
 
 [node name="TimerVida" type="Timer" parent="." unique_id=105131881]
-wait_time = 2.0
+wait_time = 2.5
 one_shot = true
 
 [connection signal="area_entered" from="." to="." method="_al_entrar_area"]
+[connection signal="body_shape_entered" from="." to="." method="_al_chocar_cuerpo"]
 [connection signal="timeout" from="TimerVida" to="." method="_al_expirar"]

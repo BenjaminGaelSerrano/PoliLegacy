@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://wvc2lmg3rihb"]
+
+[ext_resource type="Script" uid="uid://1h20sccna4ln" path="res://Scripts/nieva_boss.gd" id="1_nv8ka"]
+[ext_resource type="Texture2D" uid="uid://bugt7f8ekrbi6" path="res://icon.svg" id="2_ib3xm"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nv1qr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ib3xm")
+}],
+"loop": false,
+"name": &"atacar",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ib3xm")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ib3xm")
+}],
+"loop": false,
+"name": &"morir",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ib3xm")
+}],
+"loop": false,
+"name": &"recibir_danio",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ctk1a"]
+radius = 50.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hbx7p"]
+radius = 64.0
+
+[node name="NievaBoss" type="Node2D" unique_id=402581736 groups=["enemigos"]]
+script = ExtResource("1_nv8ka")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=118273649]
+sprite_frames = SubResource("SpriteFrames_nv1qr")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="AreaContacto" type="Area2D" parent="." unique_id=907342185]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaContacto" unique_id=553108927]
+shape = SubResource("CircleShape2D_ctk1a")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=284619073 groups=["enemigos"]]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=671920384]
+shape = SubResource("CircleShape2D_hbx7p")
+
+[node name="BarraVida" type="ProgressBar" parent="." unique_id=336047158]
+offset_left = -50.0
+offset_top = -70.0
+offset_right = 50.0
+offset_bottom = -55.0
+value = 100.0
+show_percentage = false
+
+[node name="TimerInicio" type="Timer" parent="." unique_id=819264057]
+wait_time = 2.0
+one_shot = true
+
+[node name="TimerGolpe" type="Timer" parent="." unique_id=145803926]
+one_shot = true
+
+[node name="CamaraIntro" type="Camera2D" parent="." unique_id=720518349]
+zoom = Vector2(1.5, 1.5)
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_al_terminar_animacion"]
+[connection signal="area_entered" from="AreaContacto" to="." method="_al_entrar_contacto"]
+[connection signal="area_exited" from="AreaContacto" to="." method="_al_salir_contacto"]
+[connection signal="timeout" from="TimerInicio" to="." method="_al_terminar_timer_inicio"]
+[connection signal="timeout" from="TimerGolpe" to="." method="_al_terminar_timer_golpe"]
