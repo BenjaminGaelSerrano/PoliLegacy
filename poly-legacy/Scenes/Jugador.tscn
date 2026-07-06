@@ -1,21 +1,90 @@
 [gd_scene format=3 uid="uid://cp200vyf0nbid"]
 
-[node name="Jugador" type="CharacterBody2D" unique_id=804398970]
+[ext_resource type="Script" uid="uid://cnhj56ar8fxs5" path="res://Scripts/jugador.gd" id="1_a4se9"]
+[ext_resource type="Script" uid="uid://1pi5e4686150" path="res://Scripts/movimiento_jugador.gd" id="2_g1u6r"]
+[ext_resource type="Texture2D" uid="uid://bugt7f8ekrbi6" path="res://icon.svg" id="3_z5p0c"]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=573579736]
+[sub_resource type="SpriteFrames" id="SpriteFrames_l2w8k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_z5p0c")
+}],
+"loop": true,
+"name": &"caminar",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_z5p0c")
+}],
+"loop": false,
+"name": &"disparar",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_z5p0c")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_z5p0c")
+}],
+"loop": false,
+"name": &"morir",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_z5p0c")
+}],
+"loop": false,
+"name": &"recibir_danio",
+"speed": 5.0
+}]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1312035564]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j6x4n"]
+size = Vector2(32, 48)
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1592946506]
+[node name="Jugador" type="CharacterBody2D" unique_id=1860810349 groups=["jugador"]]
+script = ExtResource("1_a4se9")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1899152955]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1912406967]
+sprite_frames = SubResource("SpriteFrames_l2w8k")
+animation = &"idle"
+autoplay = "idle"
 
-[node name="Node2D" type="Node2D" parent="." unique_id=1546605459]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1157569797]
+shape = SubResource("RectangleShape2D_j6x4n")
 
-[node name="ColorRect" type="ColorRect" parent="Node2D" unique_id=934599257]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Hitbox" type="Area2D" parent="." unique_id=1529756595 groups=["jugador"]]
+collision_layer = 2
+collision_mask = 0
 
-[node name="ColorRect2" type="ColorRect" parent="Node2D" unique_id=398389531]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=823188113]
+shape = SubResource("RectangleShape2D_j6x4n")
+
+[node name="Movimiento" type="Node" parent="." unique_id=338126960]
+script = ExtResource("2_g1u6r")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1030613504]
+
+[node name="TimerDisparo" type="Timer" parent="." unique_id=899971197]
+wait_time = 0.5
+one_shot = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=202901611]
+
+[node name="BarraVida" type="ProgressBar" parent="CanvasLayer" unique_id=668304532]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 210.0
+offset_bottom = 30.0
+value = 100.0
+show_percentage = false
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_alTerminarAnimacion"]

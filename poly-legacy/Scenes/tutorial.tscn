@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dkwyvyrlige48" path="res://Scripts/manejadorTutorial.gd" id="1_ka2pi"]
 [ext_resource type="PackedScene" uid="uid://cp200vyf0nbid" path="res://Scenes/Jugador.tscn" id="2_i6t4g"]
+[ext_resource type="PackedScene" uid="uid://dl7m5tpq0c2fj" path="res://Scenes/Inventario.tscn" id="3_p1f1o"]
 [ext_resource type="PackedScene" uid="uid://btimyonhs2v4" path="res://Scenes/Charly.tscn" id="3_p8jf4"]
 [ext_resource type="PackedScene" uid="uid://biht5yxyu4b6k" path="res://Scenes/libro.tscn" id="4_p1f1o"]
 
@@ -12,6 +13,8 @@ script = ExtResource("1_ka2pi")
 
 [node name="Jugador" parent="." unique_id=804398970 instance=ExtResource("2_i6t4g")]
 
+[node name="CanvasLayer2" parent="." unique_id=1161616043 instance=ExtResource("3_p1f1o")]
+
 [node name="Charly" parent="." unique_id=1176479466 instance=ExtResource("3_p8jf4")]
 
 [node name="Libro" parent="." unique_id=1449031924 instance=ExtResource("4_p1f1o")]
@@ -19,12 +22,20 @@ script = ExtResource("1_ka2pi")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1336635010]
 
 [node name="Label" type="Label" parent="CanvasLayer" unique_id=1814772408]
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 485.0
+offset_top = 131.0
+offset_right = 704.0
+offset_bottom = 180.0
+text = "USÁ WASD PARA MOVERTE
+"
+horizontal_alignment = 1
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=789233505]
-offset_right = 1155.0
-offset_bottom = 644.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(0, 0, 0, 0)
 
 [node name="Button" type="Button" parent="CanvasLayer" unique_id=1891254825]

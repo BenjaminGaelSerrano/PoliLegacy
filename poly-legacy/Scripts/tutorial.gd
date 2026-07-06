@@ -13,5 +13,4 @@ func pasoCompletado():
 	else:
 		ManejadorJuego.pasarDeNivel()
 func saltarTutorial():
-	ManejadorJuego.pasarDeNivel()		
-		
+	ManejadorJuego.pasarDeNivel()

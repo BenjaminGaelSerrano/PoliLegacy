@@ -1,30 +1,54 @@
 [gd_scene format=3 uid="uid://biht5yxyu4b6k"]
 
-[node name="Libro" type="Node2D" unique_id=1449031924]
+[ext_resource type="Script" uid="uid://c5gg4vglua5yo" path="res://Scripts/libro.gd" id="1_a5s3w"]
+[ext_resource type="Texture2D" uid="uid://n4o8yn2m0c71" path="res://Assets/Jugador.jpg" id="2_21qqq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vvocy"]
+atlas = ExtResource("2_21qqq")
+region = Rect2(904, 278, 113, 139)
+
+[node name="Libro" type="Node2D" unique_id=896181847]
+script = ExtResource("1_a5s3w")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1823141372]
+texture = SubResource("AtlasTexture_vvocy")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1166198830]
+[node name="Area2D" type="Area2D" parent="." unique_id=1089033269]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1166198830]
 
 [node name="Label" type="Label" parent="." unique_id=1314818166]
+visible = false
 offset_right = 40.0
 offset_bottom = 23.0
-text = "Aprete E"
+text = "Presioná E"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2008858323]
 
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer" unique_id=1551954291]
-offset_right = 40.0
-offset_bottom = 40.0
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -31.0
+offset_right = 20.0
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PanelContainer" unique_id=675160442]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/VBoxContainer" unique_id=1816797222]
+[node name="Titulo" type="Label" parent="CanvasLayer/PanelContainer/VBoxContainer" unique_id=1816797222]
 layout_mode = 2
 
-[node name="Label2" type="Label" parent="CanvasLayer/PanelContainer/VBoxContainer" unique_id=864649356]
+[node name="Contenido" type="Label" parent="CanvasLayer/PanelContainer/VBoxContainer" unique_id=864649356]
 layout_mode = 2
+autowrap_mode = 2
 
 [node name="Button" type="Button" parent="CanvasLayer/PanelContainer/VBoxContainer" unique_id=1056980195]
 layout_mode = 2
+text = "Cerrar Libro"

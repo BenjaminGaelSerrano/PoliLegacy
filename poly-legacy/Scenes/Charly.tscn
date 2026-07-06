@@ -1,16 +1,35 @@
 [gd_scene format=3 uid="uid://btimyonhs2v4"]
 
+[ext_resource type="Script" uid="uid://bu6is7ta7klop" path="res://Scripts/charly.gd" id="1_nn7e4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ia0n"]
+size = Vector2(37, 46)
+
 [node name="Charly" type="Area2D" unique_id=1176479466]
+position = Vector2(600, 400)
+script = ExtResource("1_nn7e4")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=320037923]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1981373026]
+scale = Vector2(1.1, 1.1)
+shape = SubResource("RectangleShape2D_6ia0n")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=563750172]
 
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer" unique_id=2008241721]
-offset_right = 40.0
-offset_bottom = 40.0
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
 
 [node name="Label" type="Label" parent="CanvasLayer/PanelContainer" unique_id=1897955519]
 layout_mode = 2
+autowrap_mode = 2
