@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dvn7k2wrapl3c"]
+
+[ext_resource type="PackedScene" uid="uid://cp200vyf0nbid" path="res://Scenes/Jugador.tscn" id="1_d8m4x"]
+
+[node name="PasilloDerecho" type="Node2D" unique_id=552109384]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=903471256]
+
+[node name="Jugador" parent="." unique_id=128374650 instance=ExtResource("1_d8m4x")]
