@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://drib26xsqk2op"]
+
+[ext_resource type="Script" uid="uid://8efsmyhu5xv2" path="res://Scripts/menu_inicio.gd" id="1_menuinicio"]
+
+[node name="MenuInicio" type="Control" unique_id=1088715518]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_menuinicio")
+
+[node name="Fondo" type="TextureRect" parent="." unique_id=1988736085]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Botones" type="VBoxContainer" parent="." unique_id=740902717]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.0
+offset_top = -70.0
+offset_right = 110.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="Jugar" type="Button" parent="Botones" unique_id=941404982]
+layout_mode = 2
+text = "Jugar"
+
+[node name="Salir" type="Button" parent="Botones" unique_id=589161129]
+layout_mode = 2
+text = "Salir"
+
+[connection signal="pressed" from="Botones/Jugar" to="." method="_jugar"]

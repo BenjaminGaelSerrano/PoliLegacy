@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cp200vyf0nbid" path="res://Scenes/Jugador.tscn" id="1_d8m4x"]
 [ext_resource type="PackedScene" uid="uid://dl7m5tpq0c2fj" path="res://Scenes/Inventario.tscn" id="2_inv"]
+[ext_resource type="PackedScene" path="res://Scenes/MenuPausa.tscn" id="3_pausa"]
 
 [node name="PasilloDerecho" type="Node2D" unique_id=552109384]
 
@@ -10,3 +11,5 @@
 [node name="Jugador" parent="." unique_id=128374650 instance=ExtResource("1_d8m4x")]
 
 [node name="InventarioUI" parent="." instance=ExtResource("2_inv")]
+
+[node name="MenuPausa" parent="." instance=ExtResource("3_pausa")]

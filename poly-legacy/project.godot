@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="PolyLegacy"
-run/main_scene="uid://bb3lg0tbrl0pj"
+run/main_scene="res://Scenes/MenuInicio.tscn"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 

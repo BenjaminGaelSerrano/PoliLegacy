@@ -7,6 +7,9 @@ var jugador_cerca = false
 var recogido = false
 
 func _ready():
+	if Inventario.tieneItem("ulti_guada"):
+		queue_free()
+		return
 	sprite.play("idle")
 
 func _al_entrar_cuerpo(cuerpo):

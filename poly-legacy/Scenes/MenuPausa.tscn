@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://0845v8ymeqyl"]
+
+[ext_resource type="Script" uid="uid://besfrftwnmhag" path="res://Scripts/menu_pausa.gd" id="1_menupausa"]
+
+[node name="MenuPausa" type="CanvasLayer" unique_id=1438275533]
+process_mode = 3
+visible = false
+script = ExtResource("1_menupausa")
+
+[node name="Fondo" type="TextureRect" parent="." unique_id=897265967]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Botones" type="VBoxContainer" parent="." unique_id=1575739404]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.0
+offset_top = -110.0
+offset_right = 110.0
+offset_bottom = 110.0
+theme_override_constants/separation = 20
+
+[node name="Reanudar" type="Button" parent="Botones" unique_id=160966647]
+layout_mode = 2
+text = "Reanudar"
+
+[node name="Reiniciar" type="Button" parent="Botones" unique_id=913833389]
+layout_mode = 2
+text = "Reiniciar nivel"
+
+[node name="MenuPrincipal" type="Button" parent="Botones" unique_id=1632307214]
+layout_mode = 2
+text = "Menú principal"
+
+[node name="Salir" type="Button" parent="Botones" unique_id=141641394]
+layout_mode = 2
+text = "Salir"
+
+[connection signal="pressed" from="Botones/Reanudar" to="." method="_reanudar"]
+[connection signal="pressed" from="Botones/Reiniciar" to="." method="_reiniciar"]
+[connection signal="pressed" from="Botones/MenuPrincipal" to="." method="_menu_principal"]
+[connection signal="pressed" from="Botones/Salir" to="." method="_salir"]
