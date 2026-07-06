@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://bsrvinv0tqkau"]
+
+[ext_resource type="Script" uid="uid://ww7q7e3hhqbn" path="res://Scripts/menu_muerte.gd" id="1_menumuerte"]
+[ext_resource type="Texture2D" uid="uid://mkr88cyf6tmk" path="res://Assets/MenuMuerte.jpg" id="2_img"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_titulo"]
+atlas = ExtResource("2_img")
+region = Rect2(215, 70, 585, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_panel"]
+atlas = ExtResource("2_img")
+region = Rect2(277, 223, 440, 341)
+
+[node name="MenuMuerte" type="CanvasLayer" unique_id=257181471]
+process_mode = 3
+visible = false
+script = ExtResource("1_menumuerte")
+
+[node name="Negro" type="ColorRect" parent="." unique_id=1200884459]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Menu" type="Control" parent="." unique_id=363197340]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="Titulo" type="TextureRect" parent="Menu" unique_id=1264718696]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -292.0
+offset_top = -243.0
+offset_right = 293.0
+offset_bottom = -113.0
+texture = SubResource("AtlasTexture_titulo")
+
+[node name="Panel" type="TextureRect" parent="Menu" unique_id=1903479262]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -220.0
+offset_top = -93.0
+offset_right = 220.0
+offset_bottom = 248.0
+texture = SubResource("AtlasTexture_panel")
+
+[node name="Botones" type="VBoxContainer" parent="Menu/Panel" unique_id=996740474]
+layout_mode = 1
+offset_left = 61.0
+offset_top = 39.0
+offset_right = 430.0
+offset_bottom = 228.0
+theme_override_constants/separation = 15
+
+[node name="Reintentar" type="Button" parent="Menu/Panel/Botones" unique_id=2106876635]
+custom_minimum_size = Vector2(0, 53)
+layout_mode = 2
+text = "Reintentar"
+flat = true
+
+[node name="MenuPrincipal" type="Button" parent="Menu/Panel/Botones" unique_id=1868906386]
+custom_minimum_size = Vector2(0, 53)
+layout_mode = 2
+text = "Menú principal"
+flat = true
+
+[node name="Salir" type="Button" parent="Menu/Panel/Botones" unique_id=116616408]
+custom_minimum_size = Vector2(0, 53)
+layout_mode = 2
+text = "Salir"
+flat = true
+
+[connection signal="pressed" from="Menu/Panel/Botones/Reintentar" to="." method="_reintentar"]
+[connection signal="pressed" from="Menu/Panel/Botones/MenuPrincipal" to="." method="_menu_principal"]
+[connection signal="pressed" from="Menu/Panel/Botones/Salir" to="." method="_salir"]

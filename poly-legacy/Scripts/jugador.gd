@@ -135,12 +135,11 @@ func _alTerminarAnimacion():
 		sprite.play("idle")
 	elif sprite.animation == "disparar":
 		sprite.play("idle")
-	elif sprite.animation == "morir":
-		var menu = get_tree().current_scene.get_node_or_null("MenuPerdido")
-		if menu:
-			menu.activar_game_over()
 
 func _morir():
 	esta_muerto = true
 	BusEventos.jugadorMuerto.emit()
 	sprite.play("morir")
+	var menu = get_tree().current_scene.get_node_or_null("MenuMuerte")
+	if menu:
+		menu.activar_game_over()

@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://wvc2lmg3rihb" path="res://Scenes/nieva_boss.tscn" id="2_1w674"]
 [ext_resource type="PackedScene" uid="uid://dl7m5tpq0c2fj" path="res://Scenes/Inventario.tscn" id="3_inv"]
 [ext_resource type="PackedScene" path="res://Scenes/MenuPausa.tscn" id="4_pausa"]
+[ext_resource type="PackedScene" path="res://Scenes/MenuMuerte.tscn" id="5_muerte"]
 
 [node name="TallerElectricidad" type="Node2D" unique_id=667281045]
 
@@ -19,3 +20,5 @@ position = Vector2(69, -414)
 [node name="InventarioUI" parent="." instance=ExtResource("3_inv")]
 
 [node name="MenuPausa" parent="." instance=ExtResource("4_pausa")]
+
+[node name="MenuMuerte" parent="." instance=ExtResource("5_muerte")]
