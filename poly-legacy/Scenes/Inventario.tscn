@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dl7m5tpq0c2fj"]
+
+[ext_resource type="Script" uid="uid://dmy8hj83u34vy" path="res://Scripts/inventarioUI.gd" id="1_i5wj1"]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1161616043]
+script = ExtResource("1_i5wj1")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1797644761]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=951588237]
+layout_mode = 2

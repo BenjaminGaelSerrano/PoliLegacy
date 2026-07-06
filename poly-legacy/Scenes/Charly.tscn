@@ -1,10 +1,13 @@
 [gd_scene format=3 uid="uid://btimyonhs2v4"]
 
+[ext_resource type="Script" uid="uid://bu6is7ta7klop" path="res://Scripts/charly.gd" id="1_nn7e4"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ia0n"]
 size = Vector2(37, 46)
 
 [node name="Charly" type="Area2D" unique_id=1176479466]
 position = Vector2(600, 400)
+script = ExtResource("1_nn7e4")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=320037923]
 

@@ -6,12 +6,12 @@ var pasoActual=0
 var tutoActivo=true
 func _ready() -> void:
 	boton.pressed.connect(saltarTutorial)
-	BusEventos.jugadorSeMueve.connect(_on_movimiento)
+	BusEventos.jugadorSeMovio.connect(_on_movimiento)
 	BusEventos.jugadorHablaConNpc.connect(_on_hablo)
 	BusEventos.libroEntregado.connect(_on_libro_entregado)
 	BusEventos.libroAgarrado.connect(_on_libro_agarrado)
 	BusEventos.libroLeido.connect(_on_libro_leido)
-	BusEventos.disparo.connect(_on_disparo)
+	BusEventos.disparoRealizado.connect(_on_disparo)
 	cargarPaso(0)
 func cargarPaso(n: int):
 	pasoActual=n
