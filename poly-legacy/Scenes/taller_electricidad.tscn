@@ -12,3 +12,4 @@ texture = ExtResource("1_6euo0")
 [node name="Jugador" parent="." unique_id=891026473 instance=ExtResource("1_t5e9r")]
 
 [node name="NievaBoss" parent="." unique_id=402581736 instance=ExtResource("2_1w674")]
+position = Vector2(69, -414)
