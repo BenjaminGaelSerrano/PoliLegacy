@@ -65,14 +65,26 @@ shape = SubResource("RectangleShape2D_j6x4n")
 collision_layer = 2
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1899152955]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=823188113]
+shape = SubResource("RectangleShape2D_j6x4n")
 
-[node name="Node2D" type="Node2D" parent="." unique_id=1546605459]
+[node name="Movimiento" type="Node" parent="." unique_id=338126960]
+script = ExtResource("2_g1u6r")
 
-[node name="ColorRect" type="ColorRect" parent="Node2D" unique_id=934599257]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1030613504]
 
-[node name="ColorRect2" type="ColorRect" parent="Node2D" unique_id=398389531]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="TimerDisparo" type="Timer" parent="." unique_id=899971197]
+wait_time = 1.5
+one_shot = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=202901611]
+
+[node name="BarraVida" type="ProgressBar" parent="CanvasLayer" unique_id=668304532]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 210.0
+offset_bottom = 30.0
+value = 100.0
+show_percentage = false
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_alTerminarAnimacion"]

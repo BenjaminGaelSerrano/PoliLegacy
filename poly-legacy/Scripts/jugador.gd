@@ -1,79 +1,114 @@
 extends CharacterBody2D
-@export var velocidad= 150
-@export var vidaMaxima:int= 50
-@export var daño:int= 10
-@export var libroEscena:PackedScene
-@onready var animacion = $AnimatedSprite2D
-@onready var relleno = $BarraVida/Relleno
-@onready var vidas: int = vidaMaxima
-@export var ancho_barra: float = 50.0
 
-var ultimaDir = "abajo"
-var atacando: bool = false
-var libro_equipado: bool = false
+const ProyectilJugador = preload("res://Scenes/proyectil_jugador.tscn")
 
-func _ready() -> void:
-	add_to_group("jugadores")
-	EventBus.libro_agarrado.connect(_on_libro_agarrado)
-	actualizar_barra()
+@export var zoom_camara = Vector2(0.5, 0.5)
+@export var danio = 10
 
-func _on_libro_agarrado(_titulo: String, _contenido: String) -> void:
+@onready var sprite = $AnimatedSprite2D
+@onready var timer_disparo = $TimerDisparo
+@onready var barra_vida = $CanvasLayer/BarraVida
+@onready var camara = $Camera2D
+
+var vida_max = 100
+var vida_actual = 100
+var esta_muerto = false
+var recibiendo_danio = false
+var recarga_disparo = 1.5
+var jefe_derrotado = false
+var libro_equipado = false
+
+func _ready():
+	add_to_group("jugador")
+	vida_actual = vida_max
+	barra_vida.max_value = vida_max
+	barra_vida.value = vida_actual
+
+	camara.zoom = zoom_camara
+	_ajustar_limites_camara()
+
+	timer_disparo.one_shot = true
+	timer_disparo.wait_time = recarga_disparo
+
+	BusEventos.jefeDerrotado.connect(_al_derrotar_jefe)
+	BusEventos.libroAgarrado.connect(_al_agarrar_libro)
+
+	sprite.play("idle")
+
+func _al_agarrar_libro():
 	libro_equipado = true
 
-func _physics_process(_delta: float) -> void:
-	if atacando:
-		move_and_slide()
+func _al_derrotar_jefe(_nivel):
+	jefe_derrotado = true
+
+func _ajustar_limites_camara():
+	var nodos = get_tree().get_nodes_in_group("limites")
+	if nodos.is_empty():
 		return
 
-	var direccion = Input.get_vector("izquierda", "derecha", "arriba", "abajo")
+	var min_x = INF
+	var min_y = INF
+	var max_x = -INF
+	var max_y = -INF
 
-	if direccion == Vector2.ZERO:
-		velocity = Vector2.ZERO
-		##actualizar_animacion("parado")
-	else:
-		if abs(direccion.x) > abs(direccion.y):
-			ultimaDir = "derecha" if direccion.x > 0 else "izquierda"
-		else:
-			ultimaDir = "abajo" if direccion.y > 0 else "arriba"
-		velocity = direccion * velocidad
-		##actualizar_animacion("caminar")
-		EventBus.jugador_se_movio.emit()
+	for nodo in nodos:
+		var extension = nodo.shape.size / 2
+		var centro = nodo.global_position
+		min_x = min(min_x, centro.x - extension.x)
+		max_x = max(max_x, centro.x + extension.x)
+		min_y = min(min_y, centro.y - extension.y)
+		max_y = max(max_y, centro.y + extension.y)
 
-	move_and_slide()
+	camara.limit_left = int(min_x)
+	camara.limit_right = int(max_x)
+	camara.limit_top = int(min_y)
+	camara.limit_bottom = int(max_y)
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("atacar") and not atacando:
-		if libro_equipado:
-			atacar()
-
-func atacar() -> void:
-	atacando = true
-	velocity = Vector2.ZERO
-	##animacion.play("atacar_" + ultimaDir)
-
-	var proyectil = escena_libro.instantiate()
-	proyectil.global_position = global_position
-	proyectil.daño_jugador = daño
-	proyectil.jugador_origen = self
-
-	match ultimaDir:
-		"arriba":    proyectil.direction = Vector2(0, -1)
-		"abajo":     proyectil.direction = Vector2(0,  1)
-		"izquierda": proyectil.direction = Vector2(-1, 0)
-		"derecha":   proyectil.direction = Vector2(1,  0)
-
+func _input(event):
+	if esta_muerto:
+		return
+	if event.is_action_pressed("click_derecho") and timer_disparo.is_stopped():
+		_disparar()
+		timer_disparo.start()
+	if event.is_action_pressed("ui_accept"):
+		_usar_ulti()
+func _usar_ulti():
+	BusEventos.ultiRealizada.emit()
+func _disparar():
+	sprite.play("disparar")
+	var proyectil = ProyectilJugador.instantiate()
 	get_parent().add_child(proyectil)
-	EventBus.disparo_realizado.emit()
+	proyectil.global_position = global_position
+	proyectil.direccion = global_position.direction_to(get_global_mouse_position())
+	proyectil.rotation = proyectil.direccion.angle()
+	proyectil.danio = danio
+	BusEventos.disparoRealizado.emit()
 
-	##await animacion.animation_finished
-	atacando = false
+func recibir_danio(cantidad):
+	if esta_muerto or recibiendo_danio:
+		return
+	vida_actual -= cantidad
+	vida_actual = clamp(vida_actual, 0, vida_max)
+	barra_vida.value = vida_actual
+	BusEventos.jugadorRecibioDanio.emit(vida_actual)
+	if vida_actual <= 0:
+		_morir()
+	else:
+		recibiendo_danio = true
+		sprite.play("recibir_danio")
 
-func actualizar_barra() -> void:
-	relleno.size.x = (float(vidas) / float(vida_maxima)) * ancho_barra
+func _alTerminarAnimacion():
+	if sprite.animation == "recibir_danio":
+		recibiendo_danio = false
+		sprite.play("idle")
+	elif sprite.animation == "disparar":
+		sprite.play("idle")
+	elif sprite.animation == "morir":
+		var menu = get_tree().current_scene.get_node_or_null("MenuPerdido")
+		if menu:
+			menu.activar_game_over()
 
-func recibir_daño(dañorecibido: int) -> void:
-	vidas -= dañorecibido
-	actualizar_barra()
-	if vidas <= 0:
-		get_tree().current_scene.get_node("MenuPerdido").activar_game_over()
-		queue_free()
+func _morir():
+	esta_muerto = true
+	BusEventos.jugadorMuerto.emit()
+	sprite.play("morir")

@@ -5,9 +5,9 @@ var abierto=false
 func _ready() -> void:
 	panel.visible=false
 func _input(event):
-	if not (event is InputEventKey):
+	if not event.is_pressed():
 		return
-	if event.is_action_just_pressed("Inventario"):
+	if event.is_action("Inventario"):
 		abierto = not abierto
 		panel.visible = abierto
 		if abierto:

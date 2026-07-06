@@ -20,20 +20,19 @@ func _ready() -> void:
 	zonaDeteccion.body_entered.connect(_on_body_entered)
 	zonaDeteccion.body_exited.connect(_on_body_exited)
 func _on_body_entered(body):
-	if body.is_in_group("jugadores") and not agarrado:
+	if body.is_in_group("jugador") and not agarrado:
 		jugadorCerca=true
 		apretarE.visible=true
 func _on_body_exited(body):
-	if body.is_in_group("jugadores"):
+	if body.is_in_group("jugador"):
 		jugadorCerca=false
 		apretarE.visible=false
 func _input(event):
-	if not (event is InputEventKey):
-		return
-	if event.is_action_just_pressed("Interactuar"):
+	if event.is_action_pressed("Interactuar"):
 		if jugadorCerca and not agarrado:
 			agarrar()
-		elif agarrado:
+	if event.is_action_pressed("ui_cancel"):
+		if agarrado:
 			if not abierto:
 				abrirLibro()
 			else:
