@@ -7,6 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://0845v8ymeqyl" path="res://Scenes/MenuPausa.tscn" id="4_pausa"]
 [ext_resource type="PackedScene" uid="uid://bsrvinv0tqkau" path="res://Scenes/MenuMuerte.tscn" id="5_muerte"]
 
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_jc2gg"]
+a = Vector2(-689, -294)
+b = Vector2(-563, -285)
+
 [node name="TallerElectricidad" type="Node2D" unique_id=667281045]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=340192857]
@@ -23,3 +27,10 @@ position = Vector2(555, -103)
 [node name="MenuPausa" parent="." unique_id=288382443 instance=ExtResource("4_pausa")]
 
 [node name="MenuMuerte" parent="." unique_id=795337533 instance=ExtResource("5_muerte")]
+
+[node name="Puerta" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Puerta" groups=["puerta"]]
+shape = SubResource("SegmentShape2D_jc2gg")
+metadata/escena_destino = "res://Scenes/pasillo_derecho.tscn"
+metadata/item_requerido = "escudo_nievas"

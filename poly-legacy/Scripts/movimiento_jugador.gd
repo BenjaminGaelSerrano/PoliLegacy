@@ -33,9 +33,15 @@ func _revisar_puerta():
 		var colisionador = colision.get_collider()
 		var id_dueno = colisionador.shape_find_owner(colision.get_collider_shape_index())
 		var forma = colisionador.shape_owner_get_owner(id_dueno)
-		if forma.is_in_group("puerta"):
-			get_tree().change_scene_to_file("res://Scenes/pasillo_medio.tscn")
+		if not forma.is_in_group("puerta"):
+			continue
+		var item_requerido = forma.get_meta("item_requerido", "")
+		if item_requerido != "" and not Inventario.tieneItem(item_requerido):
 			return
+		var escena_destino = forma.get_meta("escena_destino", "")
+		if escena_destino != "":
+			get_tree().change_scene_to_file(escena_destino)
+		return
 
 func _gestionar_animaciones(direccion):
 	var sprite = jugador.sprite

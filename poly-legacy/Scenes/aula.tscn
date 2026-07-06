@@ -85,6 +85,8 @@ shape = SubResource("RectangleShape2D_dw4tv")
 [node name="CollisionShape2D11" type="CollisionShape2D" parent="." unique_id=824020814 groups=["puerta"]]
 position = Vector2(-296, 297)
 shape = SubResource("SegmentShape2D_h05tl")
+metadata/escena_destino = "res://Scenes/pasillo_medio.tscn"
+metadata/item_requerido = "ulti_guada"
 
 [node name="CollisionShape2D10" type="CollisionShape2D" parent="." unique_id=828634750 groups=["limites"]]
 position = Vector2(-515, -611.5)
