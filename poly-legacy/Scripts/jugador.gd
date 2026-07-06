@@ -2,40 +2,62 @@ extends CharacterBody2D
 
 const ProyectilJugador = preload("res://Scenes/proyectil_jugador.tscn")
 
-const ACCION_AGARRAR = "agarrar"
+const ACCION_AGARRAR = "Interactuar"
 
 @onready var sprite = $AnimatedSprite2D
 @onready var timer_disparo = $TimerDisparo
 @onready var barra_vida = $CanvasLayer/BarraVida
 @onready var camara = $Camera2D
 
-@export var limite_izquierda = 0
-@export var limite_derecha = 600
-@export var limite_arriba = 0
-@export var limite_abajo = 648
-@export var zoom_camara = Vector2(1, 1)
+@export var zoom_camara = Vector2(0.5, 0.5)
 
 var vida_max = 100
 var vida_actual = 100
 var esta_muerto = false
 var recibiendo_danio = false
-var cooldown_disparo = 0.5
+var recarga_disparo = 1.5
+var jefe_derrotado = false
 
 func _ready():
 	vida_actual = vida_max
 	barra_vida.max_value = vida_max
 	barra_vida.value = vida_actual
 
-	camara.limit_left = limite_izquierda
-	camara.limit_right = limite_derecha
-	camara.limit_top = limite_arriba
-	camara.limit_bottom = limite_abajo
 	camara.zoom = zoom_camara
+	_ajustar_limites_camara()
 
 	timer_disparo.one_shot = true
-	timer_disparo.wait_time = cooldown_disparo
+	timer_disparo.wait_time = recarga_disparo
+
+	BusEventos.jefeDerrotado.connect(_al_derrotar_jefe)
 
 	sprite.play("idle")
+
+func _al_derrotar_jefe(_nivel):
+	jefe_derrotado = true
+
+func _ajustar_limites_camara():
+	var nodos = get_tree().get_nodes_in_group("limites")
+	if nodos.is_empty():
+		return
+
+	var min_x = INF
+	var min_y = INF
+	var max_x = -INF
+	var max_y = -INF
+
+	for nodo in nodos:
+		var extension = nodo.shape.size / 2
+		var centro = nodo.global_position
+		min_x = min(min_x, centro.x - extension.x)
+		max_x = max(max_x, centro.x + extension.x)
+		min_y = min(min_y, centro.y - extension.y)
+		max_y = max(max_y, centro.y + extension.y)
+
+	camara.limit_left = int(min_x)
+	camara.limit_right = int(max_x)
+	camara.limit_top = int(min_y)
+	camara.limit_bottom = int(max_y)
 
 func _input(event):
 	if esta_muerto:
@@ -63,7 +85,7 @@ func recibir_danio(cantidad):
 	vida_actual -= cantidad
 	vida_actual = clamp(vida_actual, 0, vida_max)
 	barra_vida.value = vida_actual
-	BusEventos.jugador_recibio_danio.emit(vida_actual)
+	BusEventos.jugadorRecibioDanio.emit(vida_actual)
 	if vida_actual <= 0:
 		_morir()
 	else:
@@ -79,5 +101,5 @@ func _al_terminar_animacion():
 
 func _morir():
 	esta_muerto = true
-	BusEventos.jugador_murio.emit()
+	BusEventos.jugadorMuerto.emit()
 	sprite.play("morir")

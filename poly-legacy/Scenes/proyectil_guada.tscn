@@ -19,7 +19,7 @@ radius = 32.202484
 
 [node name="ProyectilGuada" type="Area2D" unique_id=223509111]
 collision_layer = 16
-collision_mask = 34
+collision_mask = 35
 script = ExtResource("1_b6kqn")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=746331294]
@@ -31,3 +31,4 @@ autoplay = "idle"
 shape = SubResource("CircleShape2D_5ny1c")
 
 [connection signal="area_entered" from="." to="." method="_al_entrar_area"]
+[connection signal="body_shape_entered" from="." to="." method="_al_chocar_cuerpo"]

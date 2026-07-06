@@ -1,9 +1,9 @@
 extends Node
 
-const ACCION_IZQUIERDA = "mover_izquierda"
-const ACCION_DERECHA = "mover_derecha"
-const ACCION_ARRIBA = "mover_arriba"
-const ACCION_ABAJO = "mover_abajo"
+const ACCION_IZQUIERDA = "Izquierda"
+const ACCION_DERECHA = "Derecha"
+const ACCION_ARRIBA = "Arriba"
+const ACCION_ABAJO = "Abajo"
 
 var velocidad = 350.0
 
@@ -20,7 +20,20 @@ func _physics_process(_delta):
 	var direccion = Input.get_vector(ACCION_IZQUIERDA, ACCION_DERECHA, ACCION_ARRIBA, ACCION_ABAJO)
 	jugador.velocity = direccion * velocidad
 	jugador.move_and_slide()
+	_revisar_puerta()
 	_gestionar_animaciones(direccion)
+
+func _revisar_puerta():
+	if not jugador.jefe_derrotado:
+		return
+	for i in jugador.get_slide_collision_count():
+		var colision = jugador.get_slide_collision(i)
+		var colisionador = colision.get_collider()
+		var id_dueno = colisionador.shape_find_owner(colision.get_collider_shape_index())
+		var forma = colisionador.shape_owner_get_owner(id_dueno)
+		if forma.is_in_group("puerta"):
+			get_tree().change_scene_to_file("res://Scenes/pasillo_medio.tscn")
+			return
 
 func _gestionar_animaciones(direccion):
 	var sprite = jugador.sprite
