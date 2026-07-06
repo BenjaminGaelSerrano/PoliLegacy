@@ -16,14 +16,14 @@ func _alternar():
 		_refrescar()
 
 func _refrescar():
-	var slots = grilla.get_children()
-	for i in range(slots.size()):
-		var slot = slots[i]
+	var casillas = grilla.get_children()
+	for i in range(casillas.size()):
+		var casilla = casillas[i]
 		if i < Inventario.items.size():
-			var item = Inventario.items[i]
-			if item.datos.has("icono"):
-				slot.texture = load(item.datos["icono"])
-			slot.tooltip_text = item.datos.get("titulo", item.EspacioEnElInventario)
+			var objeto = Inventario.items[i]
+			if objeto.datos.has("icono"):
+				casilla.texture = load(objeto.datos["icono"])
+			casilla.tooltip_text = objeto.datos.get("titulo", objeto.EspacioEnElInventario)
 		else:
-			slot.texture = null
-			slot.tooltip_text = ""
+			casilla.texture = null
+			casilla.tooltip_text = ""

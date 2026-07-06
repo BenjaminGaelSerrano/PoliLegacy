@@ -97,4 +97,26 @@ offset_bottom = 52.0
 value = 100.0
 show_percentage = false
 
+[node name="Escudos" type="HBoxContainer" parent="CanvasLayer" unique_id=668304534]
+visible = false
+offset_left = 10.0
+offset_top = 58.0
+offset_right = 210.0
+offset_bottom = 90.0
+theme_override_constants/separation = 6
+
+[node name="Escudo1" type="TextureRect" parent="CanvasLayer/Escudos" unique_id=668304535]
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 2
+texture = ExtResource("3_z5p0c")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Escudo2" type="TextureRect" parent="CanvasLayer/Escudos" unique_id=668304536]
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 2
+texture = ExtResource("3_z5p0c")
+expand_mode = 1
+stretch_mode = 4
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_alTerminarAnimacion"]

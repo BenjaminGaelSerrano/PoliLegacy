@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dq4se2e3cekm0"
-path="res://.godot/imported/1_IDLE_000.png-342208b009ced4980b83e98b4c2be3c9.ctex"
+uid="uid://cagaq5nhyghl6"
+path="res://.godot/imported/taller_electricidad.png-6ed1b5e49ace55dc92b7e54ba0dd3caf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/1_IDLE_000.png"
-dest_files=["res://.godot/imported/1_IDLE_000.png-342208b009ced4980b83e98b4c2be3c9.ctex"]
+source_file="res://Assets/taller_electricidad.png"
+dest_files=["res://.godot/imported/taller_electricidad.png-6ed1b5e49ace55dc92b7e54ba0dd3caf.ctex"]
 
 [params]
 

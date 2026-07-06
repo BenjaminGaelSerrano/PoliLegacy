@@ -1,24 +1,25 @@
 [gd_scene format=3 uid="uid://cd05ahca4cs8s"]
 
-[ext_resource type="Texture2D" uid="uid://dbapi018k37k1" path="res://Assets/MapaGodotLevel1.png" id="1_6euo0"]
+[ext_resource type="Texture2D" uid="uid://cagaq5nhyghl6" path="res://Assets/taller_electricidad.png" id="1_jc2gg"]
 [ext_resource type="PackedScene" uid="uid://cp200vyf0nbid" path="res://Scenes/Jugador.tscn" id="1_t5e9r"]
 [ext_resource type="PackedScene" uid="uid://wvc2lmg3rihb" path="res://Scenes/nieva_boss.tscn" id="2_1w674"]
-[ext_resource type="PackedScene" uid="uid://dl7m5tpq0c2fj" path="res://Scenes/Inventario.tscn" id="3_inv"]
-[ext_resource type="PackedScene" path="res://Scenes/MenuPausa.tscn" id="4_pausa"]
-[ext_resource type="PackedScene" path="res://Scenes/MenuMuerte.tscn" id="5_muerte"]
+[ext_resource type="PackedScene" uid="uid://deev17apvwgh4" path="res://Scenes/Inventario.tscn" id="3_inv"]
+[ext_resource type="PackedScene" uid="uid://0845v8ymeqyl" path="res://Scenes/MenuPausa.tscn" id="4_pausa"]
+[ext_resource type="PackedScene" uid="uid://bsrvinv0tqkau" path="res://Scenes/MenuMuerte.tscn" id="5_muerte"]
 
 [node name="TallerElectricidad" type="Node2D" unique_id=667281045]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=340192857]
-texture = ExtResource("1_6euo0")
+texture = ExtResource("1_jc2gg")
 
 [node name="Jugador" parent="." unique_id=891026473 instance=ExtResource("1_t5e9r")]
+position = Vector2(-570, -214)
 
 [node name="NievaBoss" parent="." unique_id=402581736 instance=ExtResource("2_1w674")]
-position = Vector2(69, -414)
+position = Vector2(555, -103)
 
-[node name="InventarioUI" parent="." instance=ExtResource("3_inv")]
+[node name="InventarioUI" parent="." unique_id=308611076 instance=ExtResource("3_inv")]
 
-[node name="MenuPausa" parent="." instance=ExtResource("4_pausa")]
+[node name="MenuPausa" parent="." unique_id=288382443 instance=ExtResource("4_pausa")]
 
-[node name="MenuMuerte" parent="." instance=ExtResource("5_muerte")]
+[node name="MenuMuerte" parent="." unique_id=795337533 instance=ExtResource("5_muerte")]

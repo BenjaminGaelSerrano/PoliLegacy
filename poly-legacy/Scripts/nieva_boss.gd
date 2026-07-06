@@ -1,6 +1,6 @@
 extends Node2D
 
-const Coleccionable = preload("res://Scenes/coleccionable_guada.tscn")
+const Coleccionable = preload("res://Scenes/coleccionable_nievas.tscn")
 
 @onready var sprite = $AnimatedSprite2D
 @onready var barra_vida = $BarraVida
@@ -8,10 +8,10 @@ const Coleccionable = preload("res://Scenes/coleccionable_guada.tscn")
 @onready var timer_golpe = $TimerGolpe
 @onready var camara_intro = $CamaraIntro
 
-var vida_maxima = 100
-var velocidad = 70.0
-var velocidad_fase2 = 120.0
-var danio_contacto = 10
+var vida_maxima = 200
+var velocidad = 300.0
+var velocidad_fase2 = 380.0
+var danio_contacto = 20
 var numero_nivel = 2
 
 var vida = 100
@@ -20,6 +20,8 @@ var en_contacto = false
 var fase_actual = 1
 var transicion_realizada = false
 var muriendo = false
+var puede_perseguir = false
+var aturdido = false
 
 func _ready():
 	vida = vida_maxima
@@ -38,7 +40,7 @@ func _buscar_jugador():
 	return null
 
 func _physics_process(delta):
-	if muriendo or objetivo == null:
+	if muriendo or objetivo == null or not puede_perseguir or aturdido:
 		return
 	var velocidad_actual = velocidad
 	if fase_actual == 2:
@@ -68,6 +70,7 @@ func _al_terminar_timer_inicio():
 
 	camara_jugador.make_current()
 	camara_intro.queue_free()
+	puede_perseguir = true
 
 func _al_entrar_contacto(area):
 	if area.is_in_group("jugador") and not muriendo:
@@ -86,10 +89,16 @@ func _al_terminar_timer_golpe():
 		timer_golpe.start()
 
 func _golpear():
-	if objetivo == null or muriendo:
+	if objetivo == null or muriendo or aturdido:
 		return
 	sprite.play("atacar")
 	objetivo.recibir_danio(danio_contacto)
+	_aturdir()
+
+func _aturdir():
+	aturdido = true
+	await get_tree().create_timer(1.5).timeout
+	aturdido = false
 
 func recibir_danio(cantidad):
 	if muriendo:
@@ -111,13 +120,15 @@ func _morir():
 	timer_golpe.stop()
 	sprite.play("morir")
 
+	await get_tree().create_timer(3.0).timeout
+	BusEventos.jefeDerrotado.emit(numero_nivel)
+	var coleccionable = Coleccionable.instantiate()
+	get_parent().add_child(coleccionable)
+	coleccionable.global_position = global_position
+	queue_free()
+
 func _al_terminar_animacion():
-	if sprite.animation == "morir":
-		await get_tree().create_timer(5.0).timeout
-		BusEventos.jefeDerrotado.emit(numero_nivel)
-		var coleccionable = Coleccionable.instantiate()
-		get_parent().add_child(coleccionable)
-		coleccionable.global_position = global_position
-		queue_free()
-	elif sprite.animation == "atacar" or sprite.animation == "recibir_danio":
+	if muriendo:
+		return
+	if sprite.animation == "atacar" or sprite.animation == "recibir_danio":
 		sprite.play("idle")

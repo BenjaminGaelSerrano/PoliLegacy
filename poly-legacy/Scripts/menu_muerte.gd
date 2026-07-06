@@ -3,7 +3,7 @@ extends CanvasLayer
 @onready var negro = $Negro
 @onready var menu = $Menu
 
-func activar_game_over():
+func activar_pantalla_muerte():
 	visible = true
 	get_tree().paused = true
 	var tween = create_tween()
