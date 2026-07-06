@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 extends Node2D
 signal jugadorSeMovio
 signal jugadorHablaConNpc
