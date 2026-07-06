@@ -1,7 +1,7 @@
 extends Node2D
 
 const ProyectilGuada = preload("res://Scenes/proyectil_guada.tscn")
-const Coleccionable = preload("res://Scenes/coleccionable.tscn")
+const Coleccionable = preload("res://Scenes/coleccionable_guada.tscn")
 
 @onready var sprite = $AnimatedSprite2D
 @onready var area_deteccion = $AreaDeteccion

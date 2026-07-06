@@ -1,6 +1,6 @@
 extends Node2D
 
-const Coleccionable = preload("res://Scenes/coleccionable.tscn")
+const Coleccionable = preload("res://Scenes/coleccionable_guada.tscn")
 
 @onready var sprite = $AnimatedSprite2D
 @onready var barra_vida = $BarraVida

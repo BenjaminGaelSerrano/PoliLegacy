@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dkwyvyrlige48" path="res://Scripts/manejadorTutorial.gd" id="1_ka2pi"]
 [ext_resource type="PackedScene" uid="uid://cp200vyf0nbid" path="res://Scenes/Jugador.tscn" id="2_i6t4g"]
+[ext_resource type="PackedScene" uid="uid://dl7m5tpq0c2fj" path="res://Scenes/Inventario.tscn" id="3_p1f1o"]
 [ext_resource type="PackedScene" uid="uid://btimyonhs2v4" path="res://Scenes/Charly.tscn" id="3_p8jf4"]
 [ext_resource type="PackedScene" uid="uid://biht5yxyu4b6k" path="res://Scenes/libro.tscn" id="4_p1f1o"]
 
@@ -11,6 +12,8 @@ script = ExtResource("1_ka2pi")
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=733242795]
 
 [node name="Jugador" parent="." unique_id=804398970 instance=ExtResource("2_i6t4g")]
+
+[node name="CanvasLayer2" parent="." unique_id=1161616043 instance=ExtResource("3_p1f1o")]
 
 [node name="Charly" parent="." unique_id=1176479466 instance=ExtResource("3_p8jf4")]
 

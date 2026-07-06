@@ -6,7 +6,7 @@ signal libroAgarrado
 signal libroLeido
 signal disparoRealizado
 signal tutorialCompletado
-signal jefeDerrotado
-signal jugadorRecibioDanio
-signal jugadorMurio
+signal jefeDerrotado(nivel)
+signal jugadorRecibioDanio(vida)
+signal jugadorMuerto
 signal coleccionableObtenido
