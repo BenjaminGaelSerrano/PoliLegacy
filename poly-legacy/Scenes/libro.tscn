@@ -7,15 +7,23 @@
 atlas = ExtResource("2_21qqq")
 region = Rect2(904, 278, 113, 139)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_21qqq"]
+size = Vector2(19.399998, 18.2)
+
 [node name="Libro" type="Node2D" unique_id=896181847]
 script = ExtResource("1_a5s3w")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1823141372]
+position = Vector2(-10.25, -20.75)
+scale = Vector2(0.8185841, 0.70143884)
 texture = SubResource("AtlasTexture_vvocy")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1089033269]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1166198830]
+position = Vector2(-9.5, -20.499996)
+scale = Vector2(4, 4)
+shape = SubResource("RectangleShape2D_21qqq")
 
 [node name="Label" type="Label" parent="." unique_id=1314818166]
 visible = false

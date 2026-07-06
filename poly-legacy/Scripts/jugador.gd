@@ -19,7 +19,7 @@ var jefe_derrotado = false
 var libro_equipado = false
 
 func _ready():
-	add_to_group("jugadores")
+	add_to_group("jugador")
 	vida_actual = vida_max
 	barra_vida.max_value = vida_max
 	barra_vida.value = vida_actual
@@ -70,7 +70,10 @@ func _input(event):
 	if event.is_action_pressed("click_derecho") and timer_disparo.is_stopped():
 		_disparar()
 		timer_disparo.start()
-
+	if event.is_action_pressed("ui_accept"):
+		_usar_ulti()
+func _usar_ulti():
+	BusEventos.ultiRealizada.emit()
 func _disparar():
 	sprite.play("disparar")
 	var proyectil = ProyectilJugador.instantiate()
