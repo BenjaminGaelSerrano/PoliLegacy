@@ -7,44 +7,133 @@
 [ext_resource type="PackedScene" uid="uid://biht5yxyu4b6k" path="res://Scenes/libro.tscn" id="4_p1f1o"]
 [ext_resource type="Texture2D" uid="uid://clvstad7hxgt5" path="res://Assets/MapaTutorial.png" id="6_p1f1o"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p1f1o"]
+size = Vector2(504, 169)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ys4pu"]
+size = Vector2(1327, 81)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h2ono"]
+size = Vector2(120, 1036.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_on4kn"]
+size = Vector2(764.5, 78)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_70gml"]
+size = Vector2(109, 364)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8va2t"]
+size = Vector2(220, 346.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8mnmb"]
+size = Vector2(462, 143)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_koko0"]
+size = Vector2(129.125, 901.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lsb8r"]
+size = Vector2(333.5, 255)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ap3ea"]
+size = Vector2(127.5, 131)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t6ver"]
+size = Vector2(1035, 56.5)
+
 [node name="Tutorial" type="Node2D" unique_id=1380553068]
+position = Vector2(-43, -187)
 script = ExtResource("1_ka2pi")
+metadata/_edit_horizontal_guides_ = [-927.0]
 
 [node name="Jugador" parent="." unique_id=804398970 instance=ExtResource("2_i6t4g")]
 
 [node name="CanvasLayer2" parent="." unique_id=1161616043 instance=ExtResource("3_p1f1o")]
 
 [node name="Charly" parent="." unique_id=1176479466 instance=ExtResource("3_p8jf4")]
+position = Vector2(44, 95)
 
 [node name="Libro" parent="." unique_id=1449031924 instance=ExtResource("4_p1f1o")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1336635010]
 
 [node name="Label" type="Label" parent="CanvasLayer" unique_id=1814772408]
-offset_left = 485.0
-offset_top = 131.0
-offset_right = 704.0
-offset_bottom = 180.0
+offset_left = 442.0
+offset_top = -56.0
+offset_right = 661.0
+offset_bottom = -7.0
 text = "USÁ WASD PARA MOVERTE
 "
 horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=789233505]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 155.0
+offset_top = 932.0
+offset_right = 155.0
+offset_bottom = 932.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0)
 
 [node name="Button" type="Button" parent="CanvasLayer" unique_id=1891254825]
-offset_left = 1003.0
-offset_top = -2.0
-offset_right = 1151.0
-offset_bottom = 29.0
+offset_left = 974.0
+offset_top = 41.0
+offset_right = 1122.0
+offset_bottom = 72.0
 text = "SALTAR TUTORIAL"
+metadata/_edit_use_anchors_ = true
 
-[node name="MapaTutorial" type="Sprite2D" parent="." unique_id=228791686]
-position = Vector2(-9, 38)
-scale = Vector2(4.8298755, 3.90884)
+[node name="MapaTutorial" type="Sprite2D" parent="." unique_id=2050841666]
+position = Vector2(47, -259)
 texture = ExtResource("6_p1f1o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MapaTutorial" unique_id=245191038]
+position = Vector2(397, 337.5)
+shape = SubResource("RectangleShape2D_p1f1o")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="MapaTutorial" unique_id=485965874]
+position = Vector2(-6.5, 598.5)
+shape = SubResource("RectangleShape2D_ys4pu")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="MapaTutorial" unique_id=991858411]
+position = Vector2(-401, 345)
+shape = SubResource("RectangleShape2D_p1f1o")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="MapaTutorial" unique_id=1639448881]
+position = Vector2(672, 146.25)
+shape = SubResource("RectangleShape2D_h2ono")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="MapaTutorial" unique_id=76632918]
+position = Vector2(157.75, -400)
+shape = SubResource("RectangleShape2D_on4kn")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="MapaTutorial" unique_id=1191264139]
+position = Vector2(598.5, -441)
+shape = SubResource("RectangleShape2D_70gml")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="MapaTutorial" unique_id=455596401]
+position = Vector2(-552, -424.25)
+shape = SubResource("RectangleShape2D_8va2t")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="MapaTutorial" unique_id=460346259]
+position = Vector2(384, -176.5)
+shape = SubResource("RectangleShape2D_8mnmb")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="MapaTutorial" unique_id=2099728711]
+position = Vector2(-686.4375, 188.25)
+shape = SubResource("RectangleShape2D_koko0")
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="MapaTutorial" unique_id=858855078]
+position = Vector2(-457.75, -123.5)
+shape = SubResource("RectangleShape2D_lsb8r")
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="MapaTutorial" unique_id=1725586488]
+position = Vector2(-225.75, -181)
+shape = SubResource("RectangleShape2D_ap3ea")
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="MapaTutorial" unique_id=1748533028]
+position = Vector2(39.5, -585.75)
+shape = SubResource("RectangleShape2D_t6ver")
