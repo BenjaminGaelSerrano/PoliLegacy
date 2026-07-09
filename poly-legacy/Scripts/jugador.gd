@@ -28,7 +28,7 @@ var escudos_restantes = 0
 var escudo_activo = false
 
 func _ready():
-	add_to_group("jugador")
+	add_to_group("jugadores")
 	vida_actual = vida_max
 
 	_ajustar_limites_camara()
