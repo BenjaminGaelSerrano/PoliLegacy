@@ -28,7 +28,7 @@ var escudos_restantes = 0
 var escudo_activo = false
 
 func _ready():
-	add_to_group("jugadores")
+	add_to_group("jugador")
 	vida_actual = vida_max
 
 	_ajustar_limites_camara()
@@ -136,6 +136,7 @@ func _disparar_ulti():
 	proyectil.direccion = global_position.direction_to(get_global_mouse_position())
 	proyectil.rotation = proyectil.direccion.angle()
 	proyectil.danio = danio * 3
+	BusEventos.ultiRealizada.emit()
 
 	ulti_lista = false
 	barra_ulti.value = 0

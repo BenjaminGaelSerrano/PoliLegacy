@@ -5,6 +5,7 @@ signal libroEntregado
 signal libroAgarrado
 signal libroLeido
 signal disparoRealizado
+signal ultiRealizada
 signal tutorialCompletado
 signal jefeDerrotado(nivel)
 signal jugadorRecibioDanio(vida)

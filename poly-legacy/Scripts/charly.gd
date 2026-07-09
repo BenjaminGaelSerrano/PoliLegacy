@@ -10,15 +10,17 @@ func _ready() -> void:
 	body_entered.connect(_on_body_entered)
 	body_exited.connect(_on_body_exited)
 func _on_body_entered(body):
-	if body.is_in_group("jugadores"):
+	if body.is_in_group("jugador"):
 		jugadorCerca=true
 func _on_body_exited(body):
-	if body.is_in_group("jugadores"):
+	if body.is_in_group("jugador"):
 		jugadorCerca=false
 		cerrarDialogo()
 func _input(event):
+	if not event.is_pressed():
+		return
 	if jugadorCerca and not libroYaEntregado:
-		if event.is_action_just_pressed("Interactuar"):
+		if event.is_action("Interactuar"):
 			if not dialogoAbierto:
 				abrirDialogo()
 			else:
