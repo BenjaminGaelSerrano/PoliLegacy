@@ -19,6 +19,12 @@ func _ready() -> void:
 	cerrarLibro.pressed.connect(CerrarLibro)
 	zonaDeteccion.body_entered.connect(_on_body_entered)
 	zonaDeteccion.body_exited.connect(_on_body_exited)
+	BusEventos.libroEntregado.connect(_on_libro_entregado_por_npc)
+func _on_libro_entregado_por_npc():
+	if not agarrado:
+		agarrado = true
+		apretarE.visible = false
+		$Sprite2D.visible = false
 func _on_body_entered(body):
 	if body.is_in_group("jugador") and not agarrado:
 		jugadorCerca=true
@@ -31,7 +37,7 @@ func _input(event):
 	if event.is_action_pressed("Interactuar"):
 		if jugadorCerca and not agarrado:
 			agarrar()
-	if event.is_action_pressed("ui_cancel"):
+	if event.is_action_pressed("Leer"):
 		if agarrado:
 			if not abierto:
 				abrirLibro()

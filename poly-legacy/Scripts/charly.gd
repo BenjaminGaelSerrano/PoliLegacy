@@ -37,3 +37,4 @@ func cerrarDialogo():
 func entregarLibro():
 	libroYaEntregado=true
 	BusEventos.libroEntregado.emit()
+	BusEventos.libroAgarrado.emit()

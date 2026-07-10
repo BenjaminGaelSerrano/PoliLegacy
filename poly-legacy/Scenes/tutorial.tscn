@@ -58,9 +58,9 @@ position = Vector2(44, 95)
 
 [node name="Label" type="Label" parent="CanvasLayer" unique_id=1814772408]
 offset_left = 442.0
-offset_top = -56.0
+offset_top = 20.0
 offset_right = 661.0
-offset_bottom = -7.0
+offset_bottom = 69.0
 text = "USÁ WASD PARA MOVERTE
 "
 horizontal_alignment = 1
