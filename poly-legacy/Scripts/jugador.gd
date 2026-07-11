@@ -110,13 +110,17 @@ func _ajustar_limites_camara():
 func _input(event):
 	if esta_muerto:
 		return
+	var en_tutorial = BusEventos.paso_tutorial > 0
 	if event.is_action_pressed("click_derecho") and timer_disparo.is_stopped():
-		_disparar()
-		timer_disparo.start()
+		if not en_tutorial or BusEventos.paso_tutorial >= 5:
+			_disparar()
+			timer_disparo.start()
 	elif event.is_action_pressed("ulti") and ulti_desbloqueada and ulti_lista:
-		_disparar_ulti()
+		if not en_tutorial:
+			_disparar_ulti()
 	elif event.is_action_pressed("escudo") and escudo_desbloqueado and escudos_restantes > 0 and not escudo_activo:
-		_activar_escudo()
+		if not en_tutorial:
+			_activar_escudo()
 
 func _disparar():
 	sprite.play("disparar")
@@ -164,10 +168,10 @@ func recibir_danio(cantidad):
 		_morir()
 	else:
 		recibiendo_danio = true
-		sprite.play("recibir_danio")
+		sprite.play("RecibirDanio")
 
 func _alTerminarAnimacion():
-	if sprite.animation == "recibir_danio":
+	if sprite.animation == "RecibirDanio":
 		recibiendo_danio = false
 		sprite.play("idle")
 	elif sprite.animation == "disparar":
@@ -176,7 +180,7 @@ func _alTerminarAnimacion():
 func _morir():
 	esta_muerto = true
 	BusEventos.jugadorMuerto.emit()
-	sprite.play("morir")
+	sprite.play("Morir")
 	var menu = get_tree().current_scene.get_node_or_null("MenuMuerte")
 	if menu:
 		menu.activar_pantalla_muerte()

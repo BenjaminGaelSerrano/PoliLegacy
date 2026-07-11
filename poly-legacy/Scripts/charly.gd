@@ -2,11 +2,13 @@ extends Area2D
 @export var dialogo="Bienvenido. Este libro te va a ser útil en tu aventura. Con este, podrás pasar pruebas extremadamente rigurosas."
 @onready var panel=$CanvasLayer/PanelContainer
 @onready var etiqueta=$CanvasLayer/PanelContainer/Label
+@onready var sprite=$Sprite2D
 var jugadorCerca=false
 var dialogoAbierto=false
 var libroYaEntregado=false
 func _ready() -> void:
 	panel.visible=false
+	sprite.play("idle")
 	body_entered.connect(_on_body_entered)
 	body_exited.connect(_on_body_exited)
 func _on_body_entered(body):
@@ -30,10 +32,12 @@ func abrirDialogo():
 	etiqueta.text=dialogo
 	panel.visible=true
 	dialogoAbierto=true
+	sprite.play("Hablando")
 	BusEventos.jugadorHablaConNpc.emit()
 func cerrarDialogo():
 	panel.visible=false
 	dialogoAbierto=false
+	sprite.play("idle")
 func entregarLibro():
 	libroYaEntregado=true
 	BusEventos.libroEntregado.emit()

@@ -1,15 +1,84 @@
 [gd_scene format=3 uid="uid://btimyonhs2v4"]
 
 [ext_resource type="Script" uid="uid://bu6is7ta7klop" path="res://Scripts/charly.gd" id="1_nn7e4"]
+[ext_resource type="Texture2D" uid="uid://csgyp0foi7cki" path="res://Assets/CharlyBien.png" id="2_gp60v"]
+[ext_resource type="FontFile" uid="uid://ch1ilnbwkiggr" path="res://Assets/Fonts/Caveat-VariableFont_wght.ttf" id="3_caveat"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k3veq"]
+atlas = ExtResource("2_gp60v")
+region = Rect2(0, 246, 135, 123)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ajcn"]
+atlas = ExtResource("2_gp60v")
+region = Rect2(135, 246, 135, 123)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_goes0"]
+atlas = ExtResource("2_gp60v")
+region = Rect2(270, 246, 135, 123)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_apd7h"]
+atlas = ExtResource("2_gp60v")
+region = Rect2(0, 0, 135, 123)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ra5px"]
+atlas = ExtResource("2_gp60v")
+region = Rect2(135, 0, 135, 123)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3i3jt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k3veq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ajcn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_goes0")
+}],
+"loop": true,
+"name": &"Hablando",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_apd7h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ra5px")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ia0n"]
 size = Vector2(37, 46)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+bg_color = Color(0.07, 0.17, 0.11, 0.96)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.70, 0.70, 0.65, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+content_margin_left = 14.0
+content_margin_right = 14.0
+content_margin_top = 10.0
+content_margin_bottom = 10.0
 
 [node name="Charly" type="Area2D" unique_id=1176479466]
 position = Vector2(600, 400)
 script = ExtResource("1_nn7e4")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=320037923]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=770592028]
+scale = Vector2(1.0, 1.0)
+sprite_frames = SubResource("SpriteFrames_3i3jt")
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1981373026]
 scale = Vector2(1.1, 1.1)
@@ -19,17 +88,22 @@ shape = SubResource("RectangleShape2D_6ia0n")
 
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer" unique_id=2008241721]
 visible = false
-anchors_preset = 7
-anchor_left = 0.5
+anchors_preset = 12
+anchor_left = 0.0
 anchor_top = 1.0
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -20.0
-offset_top = -40.0
-offset_right = 20.0
+offset_left = 10.0
+offset_top = -82.0
+offset_right = -10.0
+offset_bottom = -6.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
 
 [node name="Label" type="Label" parent="CanvasLayer/PanelContainer" unique_id=1897955519]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_caveat")
+theme_override_font_sizes/font_size = 17
+theme_override_colors/font_color = Color(0.93, 0.93, 0.87, 1)
 autowrap_mode = 2

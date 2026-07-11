@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c5qawke1tbr3u"]
 
 [ext_resource type="Script" uid="uid://b2pwlyo514kbs" path="res://Scripts/proyectil_jugador.gd" id="1_k7sm3"]
-[ext_resource type="Texture2D" uid="uid://bugt7f8ekrbi6" path="res://icon.svg" id="2_q9vbz"]
+[ext_resource type="Texture2D" uid="uid://ciqsw6ql4mitc" path="res://Assets/LibroProyectil (2).png" id="2_q9vbz"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_t1rw6"]
 animations = [{
@@ -23,6 +23,7 @@ collision_mask = 5
 script = ExtResource("1_k7sm3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1055079279]
+scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_t1rw6")
 animation = &"idle"
 autoplay = "idle"

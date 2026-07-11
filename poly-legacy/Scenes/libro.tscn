@@ -1,27 +1,41 @@
 [gd_scene format=3 uid="uid://biht5yxyu4b6k"]
 
 [ext_resource type="Script" uid="uid://c5gg4vglua5yo" path="res://Scripts/libro.gd" id="1_a5s3w"]
-[ext_resource type="Texture2D" uid="uid://n4o8yn2m0c71" path="res://Assets/Jugador.jpg" id="2_21qqq"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vvocy"]
-atlas = ExtResource("2_21qqq")
-region = Rect2(904, 278, 113, 139)
+[ext_resource type="Texture2D" uid="uid://ciqsw6ql4mitc" path="res://Assets/LibroProyectil (2).png" id="2_21qqq"]
+[ext_resource type="FontFile" uid="uid://dolbx7jvjeds2" path="res://Assets/Fonts/Schoolbell-Regular.ttf" id="3_schoolbell"]
+[ext_resource type="FontFile" uid="uid://ch1ilnbwkiggr" path="res://Assets/Fonts/Caveat-VariableFont_wght.ttf" id="4_caveat"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_21qqq"]
-size = Vector2(19.399998, 18.2)
+size = Vector2(19.399998, 20.25)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+content_margin_left = 16.0
+content_margin_top = 12.0
+content_margin_right = 16.0
+content_margin_bottom = 12.0
+bg_color = Color(0.07, 0.17, 0.11, 0.97)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.7, 0.7, 0.65, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
 
 [node name="Libro" type="Node2D" unique_id=896181847]
 script = ExtResource("1_a5s3w")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1823141372]
-position = Vector2(-10.25, -20.75)
-scale = Vector2(0.8185841, 0.70143884)
-texture = SubResource("AtlasTexture_vvocy")
+position = Vector2(-6.9590883, -42.597115)
+scale = Vector2(0.6195379, 0.5163673)
+texture = ExtResource("2_21qqq")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1089033269]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1166198830]
-position = Vector2(-9.5, -20.499996)
+position = Vector2(-9.5, -24.500002)
 scale = Vector2(4, 4)
 shape = SubResource("RectangleShape2D_21qqq")
 
@@ -40,23 +54,28 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -31.0
-offset_right = 20.0
-offset_bottom = 31.0
+offset_left = -270.0
+offset_top = -155.0
+offset_right = 270.0
+offset_bottom = 155.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PanelContainer" unique_id=675160442]
 layout_mode = 2
 
 [node name="Titulo" type="Label" parent="CanvasLayer/PanelContainer/VBoxContainer" unique_id=1816797222]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.88, 0.5, 1)
+theme_override_fonts/font = ExtResource("3_schoolbell")
+theme_override_font_sizes/font_size = 22
+horizontal_alignment = 1
+uppercase = true
 
 [node name="Contenido" type="Label" parent="CanvasLayer/PanelContainer/VBoxContainer" unique_id=864649356]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.93, 0.93, 0.87, 1)
+theme_override_fonts/font = ExtResource("4_caveat")
+theme_override_font_sizes/font_size = 15
 autowrap_mode = 2
-
-[node name="Button" type="Button" parent="CanvasLayer/PanelContainer/VBoxContainer" unique_id=1056980195]
-layout_mode = 2
-text = "Cerrar Libro"

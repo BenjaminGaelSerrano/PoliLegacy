@@ -52,8 +52,15 @@ func _gestionar_animaciones(direccion):
 		return
 
 	if direccion != Vector2.ZERO:
-		sprite.play("caminar")
-		if direccion.x != 0:
-			sprite.flip_h = direccion.x < 0
+		if abs(direccion.y) >= abs(direccion.x):
+			if direccion.y > 0:
+				sprite.play("CaminarAbajo")
+			else:
+				sprite.play("CaminarArriba")
+		else:
+			if direccion.x > 0:
+				sprite.play("CaminarDerecha")
+			else:
+				sprite.play("CaminarIzquierda")
 	else:
 		sprite.play("idle")

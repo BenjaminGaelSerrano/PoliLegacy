@@ -80,4 +80,5 @@ escudo={
 
 [rendering]
 
+environment/defaults/default_clear_color=Color(0.08, 0.18, 0.12, 1)
 rendering_device/driver.windows="d3d12"

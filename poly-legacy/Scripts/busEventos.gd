@@ -1,4 +1,6 @@
 extends Node2D
+var paso_tutorial: int = 0
+signal inventarioAbierto
 signal jugadorSeMovio
 signal jugadorHablaConNpc
 signal libroEntregado
