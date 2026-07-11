@@ -3,13 +3,43 @@
 [ext_resource type="Texture2D" uid="uid://cagaq5nhyghl6" path="res://Assets/taller_electricidad.png" id="1_jc2gg"]
 [ext_resource type="PackedScene" uid="uid://cp200vyf0nbid" path="res://Scenes/Jugador.tscn" id="1_t5e9r"]
 [ext_resource type="PackedScene" uid="uid://wvc2lmg3rihb" path="res://Scenes/nieva_boss.tscn" id="2_1w674"]
-[ext_resource type="PackedScene" uid="uid://deev17apvwgh4" path="res://Scenes/Inventario.tscn" id="3_inv"]
+[ext_resource type="PackedScene" uid="uid://dl7m5tpq0c2fj" path="res://Scenes/Inventario.tscn" id="3_inv"]
 [ext_resource type="PackedScene" uid="uid://0845v8ymeqyl" path="res://Scenes/MenuPausa.tscn" id="4_pausa"]
 [ext_resource type="PackedScene" uid="uid://bsrvinv0tqkau" path="res://Scenes/MenuMuerte.tscn" id="5_muerte"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_jc2gg"]
 a = Vector2(-689, -294)
 b = Vector2(-563, -285)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jc2gg"]
+size = Vector2(581, 151)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e5peb"]
+size = Vector2(1584.5, 124)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8fjr8"]
+size = Vector2(514, 146)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xh387"]
+size = Vector2(1354.5, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_02rfh"]
+size = Vector2(100, 1051)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b7q2m"]
+size = Vector2(117.5, 1070)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7jq2w"]
+size = Vector2(137.5, 256)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rfw02"]
+size = Vector2(92, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2yuks"]
+size = Vector2(378, 141)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p2eie"]
+size = Vector2(87, 217)
 
 [node name="TallerElectricidad" type="Node2D" unique_id=667281045]
 
@@ -28,9 +58,49 @@ position = Vector2(555, -103)
 
 [node name="MenuMuerte" parent="." unique_id=795337533 instance=ExtResource("5_muerte")]
 
-[node name="Puerta" type="StaticBody2D" parent="."]
+[node name="Puerta" type="StaticBody2D" parent="." unique_id=127790441]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Puerta" groups=["puerta"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Puerta" unique_id=965289866 groups=["puerta"]]
 shape = SubResource("SegmentShape2D_jc2gg")
 metadata/escena_destino = "res://Scenes/pasillo_derecho.tscn"
 metadata/item_requerido = "escudo_nievas"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2074416131]
+position = Vector2(-495.5, 421.5)
+shape = SubResource("RectangleShape2D_jc2gg")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=1172226883]
+position = Vector2(0.75, 513)
+shape = SubResource("RectangleShape2D_e5peb")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="." unique_id=1552181012]
+position = Vector2(398, 383)
+shape = SubResource("RectangleShape2D_8fjr8")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="." unique_id=94336312]
+position = Vector2(102.75, -298)
+shape = SubResource("RectangleShape2D_xh387")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="." unique_id=2078657081]
+position = Vector2(834, 27.5)
+shape = SubResource("RectangleShape2D_02rfh")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="." unique_id=1866806594]
+position = Vector2(-819.25, 17)
+shape = SubResource("RectangleShape2D_b7q2m")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="." unique_id=476382774]
+position = Vector2(-697.75, -83)
+shape = SubResource("RectangleShape2D_7jq2w")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="." unique_id=2075558526]
+position = Vector2(-720, -259)
+shape = SubResource("RectangleShape2D_rfw02")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="." unique_id=966097899]
+position = Vector2(262, -208.5)
+shape = SubResource("RectangleShape2D_2yuks")
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="." unique_id=1137486193]
+position = Vector2(701.5, 18.5)
+shape = SubResource("RectangleShape2D_p2eie")
