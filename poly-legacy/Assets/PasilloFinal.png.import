@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bnvavu3ltse8e"
-path="res://.godot/imported/Pasilloboceto.jpeg-71200660fdd39171736155687d617d56.ctex"
+uid="uid://bbqnlq8bag1mm"
+path="res://.godot/imported/PasilloFinal.png-2a79aa150aac83b2eb2e711b41ccb46d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Pasilloboceto.jpeg"
-dest_files=["res://.godot/imported/Pasilloboceto.jpeg-71200660fdd39171736155687d617d56.ctex"]
+source_file="res://Assets/PasilloFinal.png"
+dest_files=["res://.godot/imported/PasilloFinal.png-2a79aa150aac83b2eb2e711b41ccb46d.ctex"]
 
 [params]
 
