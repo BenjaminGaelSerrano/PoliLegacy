@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://n4o8yn2m0c71"
-path="res://.godot/imported/Jugador.jpg-cfc88c4682630ac12cc68cb185c5b694.ctex"
+uid="uid://c7fi3lc83oju"
+path="res://.godot/imported/LibroPotenciado (2).png-9d5efe60517d94a98abeceaf8ea6fe15.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Jugador.jpg"
-dest_files=["res://.godot/imported/Jugador.jpg-cfc88c4682630ac12cc68cb185c5b694.ctex"]
+source_file="res://Assets/LibroPotenciado (2).png"
+dest_files=["res://.godot/imported/LibroPotenciado (2).png-9d5efe60517d94a98abeceaf8ea6fe15.ctex"]
 
 [params]
 
