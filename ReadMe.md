@@ -27,14 +27,6 @@ Durante la partida, el jugador deberá:
 - Usar una habilidad especial (ultimate) tipo escudo eléctrico para protegerse de los ataques.
 - Conseguir un coleccionable único al derrotar a cada jefe.
 
-## Coleccionables
-
-Cada jefe derrotado entrega un coleccionable temático relacionado con su materia:
-
-- **Geografía**: globo terráqueo.
-- **Electricidad**: llave térmica.
-- **Matemática**: calculadora/ábaco antiguo.
-
 ## Interfaz
 
 - **Menú de inicio**: `MenuInicio_main.tscn`.
