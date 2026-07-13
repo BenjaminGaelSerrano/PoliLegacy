@@ -31,7 +31,7 @@ func _revisar_puerta():
 			ManejadorJuego.pasarDeNivel()
 			return
 		if forma.is_in_group("puerta_entrada"):
-			if forma.get_meta("nivel_requerido", -1) != ManejadorJuego.nivelActual:
+			if forma.get_meta("nivel_requerido", -1) > ManejadorJuego.nivelActual:
 				continue
 			var escena_destino = forma.get_meta("escena_destino", "")
 			if escena_destino != "":

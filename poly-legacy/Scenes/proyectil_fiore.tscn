@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://c1pgqq6pdmxn1"]
+
+[ext_resource type="Script" uid="uid://oax8qh1ig3mb" path="res://Scripts/proyectil_guada.gd" id="1_wqf5r"]
+[ext_resource type="Texture2D" uid="uid://br6oim0wyuesc" path="res://Assets/proyectilMatematica1.png" id="2_wqf5r"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5ny1c"]
+radius = 32.202484
+
+[node name="ProyectilFiore" type="Area2D" unique_id=223509111]
+collision_layer = 16
+collision_mask = 35
+script = ExtResource("1_wqf5r")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=101897719]
+position = Vector2(2.3841858e-07, -2.0000002)
+scale = Vector2(0.184, 0.23825)
+texture = ExtResource("2_wqf5r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=627869692]
+shape = SubResource("CircleShape2D_5ny1c")
+
+[connection signal="area_entered" from="." to="." method="_al_entrar_area"]
+[connection signal="body_shape_entered" from="." to="." method="_al_chocar_cuerpo"]

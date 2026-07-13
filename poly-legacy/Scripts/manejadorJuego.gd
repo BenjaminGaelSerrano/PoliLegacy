@@ -13,3 +13,7 @@ func pasarDeNivel():
 		get_tree().change_scene_to_file(VICTORIA)
 	else:
 		get_tree().change_scene_to_file(PASILLO)
+func reiniciar():
+	nivelActual=0
+	transicionando=false
+	Inventario.limpiar()

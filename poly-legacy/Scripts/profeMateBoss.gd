@@ -1,5 +1,5 @@
 extends CharacterBody2D
-const ProyectilGuada=preload("res://Scenes/proyectil_guada.tscn")
+const ProyectilGuada=preload("res://Scenes/proyectil_fiore.tscn")
 @onready var sprite=$AnimatedSprite2D
 @onready var barraVida=$ProgressBar
 @onready var timerInicio=$Timer

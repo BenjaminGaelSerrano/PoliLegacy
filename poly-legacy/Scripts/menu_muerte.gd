@@ -10,7 +10,8 @@ func activar_pantalla_muerte():
 	tween.tween_property(menu, "modulate:a", 1.0, 3.0)
 func _reintentar():
 	get_tree().paused = false
-	get_tree().reload_current_scene()
+	ManejadorJuego.reiniciar()
+	get_tree().change_scene_to_file("res://Scenes/tutorial.tscn")
 func _menu_principal():
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://Scenes/MenuInicio.tscn")

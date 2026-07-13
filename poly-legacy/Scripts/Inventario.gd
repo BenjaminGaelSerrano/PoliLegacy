@@ -11,3 +11,5 @@ func tieneItem(esp: String) -> bool:
 		if item.EspacioEnElInventario == esp:
 			return true
 	return false
+func limpiar():
+	items.clear()
