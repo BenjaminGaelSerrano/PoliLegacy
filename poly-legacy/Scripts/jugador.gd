@@ -28,8 +28,6 @@ func _ready():
 	BusEventos.jefeDerrotado.connect(_al_derrotar_jefe)
 	BusEventos.libroAgarrado.connect(_al_agarrar_libro)
 	BusEventos.coleccionableObtenido.connect(_al_obtener_coleccionable)
-	# Si en una escena anterior ya se desbloqueó la ulti, el inventario (autoload)
-	# lo recuerda: restauramos el estado al instanciar este jugador.
 	_desbloquear_ulti_si_corresponde()
 	_desbloquear_escudo_si_corresponde()
 	sprite.play("idle")

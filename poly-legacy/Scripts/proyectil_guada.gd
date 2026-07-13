@@ -3,8 +3,6 @@ extends Area2D
 var velocidad = 600.0
 var danio = 10
 var direccion = Vector2.ZERO
-func _ready():
-	sprite.play("idle")
 func _physics_process(delta):
 	position += direccion * velocidad * delta
 func _al_entrar_area(area):

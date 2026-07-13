@@ -13,3 +13,5 @@ signal jefeDerrotado(nivel)
 signal jugadorRecibioDanio(vida)
 signal jugadorMuerto
 signal coleccionableObtenido
+signal jefeMateDerrotado
+signal quizFallado

@@ -1,18 +1,7 @@
 [gd_scene format=3 uid="uid://dn7v2qhx4mfy0"]
 
 [ext_resource type="Script" uid="uid://oax8qh1ig3mb" path="res://Scripts/proyectil_guada.gd" id="1_b6kqn"]
-[ext_resource type="Texture2D" uid="uid://bugt7f8ekrbi6" path="res://icon.svg" id="2_w4r8t"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_d2xhv"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_w4r8t")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 5.0
-}]
+[ext_resource type="Texture2D" uid="uid://bp1aif0hrjrr4" path="res://Assets/MapaProyectil (2).png" id="2_kgwy6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5ny1c"]
 radius = 32.202484
@@ -22,10 +11,8 @@ collision_layer = 16
 collision_mask = 35
 script = ExtResource("1_b6kqn")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=746331294]
-sprite_frames = SubResource("SpriteFrames_d2xhv")
-animation = &"idle"
-autoplay = "idle"
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=101897719]
+texture = ExtResource("2_kgwy6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=627869692]
 shape = SubResource("CircleShape2D_5ny1c")

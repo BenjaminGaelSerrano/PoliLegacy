@@ -1,0 +1,122 @@
+[gd_scene format=3 uid="uid://bcnu36jd28i67"]
+
+[ext_resource type="Texture2D" uid="uid://dbapi018k37k1" path="res://Assets/MapaGodotLevel1.png" id="1_nm"]
+[ext_resource type="PackedScene" uid="uid://cp200vyf0nbid" path="res://Scenes/Jugador.tscn" id="2_nm"]
+[ext_resource type="PackedScene" path="res://Scenes/profeMateBoss.tscn" id="3_envir"]
+[ext_resource type="PackedScene" uid="uid://deev17apvwgh4" path="res://Scenes/Inventario.tscn" id="4_nm"]
+[ext_resource type="PackedScene" uid="uid://0845v8ymeqyl" path="res://Scenes/MenuPausa.tscn" id="5_nm"]
+[ext_resource type="PackedScene" uid="uid://bsrvinv0tqkau" path="res://Scenes/MenuMuerte.tscn" id="6_nm"]
+[ext_resource type="Script" path="res://Scripts/quiz_matematica.gd" id="7_nm"]
+
+[sub_resource type="RectangleShape2D" id="RectShape_top"]
+size = Vector2(1600, 50)
+
+[sub_resource type="RectangleShape2D" id="RectShape_bottom"]
+size = Vector2(1600, 50)
+
+[sub_resource type="RectangleShape2D" id="RectShape_left"]
+size = Vector2(50, 1600)
+
+[sub_resource type="RectangleShape2D" id="RectShape_right"]
+size = Vector2(50, 1600)
+
+[node name="NivelMatematica" type="Node2D" unique_id=700001]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=700002]
+texture = ExtResource("1_nm")
+
+[node name="ParedArriba" type="StaticBody2D" parent="." unique_id=700003]
+position = Vector2(0, -800)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ParedArriba" unique_id=700004 groups=["limites"]]
+shape = SubResource("RectShape_top")
+
+[node name="ParedAbajo" type="StaticBody2D" parent="." unique_id=700005]
+position = Vector2(0, 800)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ParedAbajo" unique_id=700006 groups=["limites"]]
+shape = SubResource("RectShape_bottom")
+
+[node name="ParedIzquierda" type="StaticBody2D" parent="." unique_id=700007]
+position = Vector2(-800, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ParedIzquierda" unique_id=700008 groups=["limites"]]
+shape = SubResource("RectShape_left")
+
+[node name="ParedDerecha" type="StaticBody2D" parent="." unique_id=700009]
+position = Vector2(800, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ParedDerecha" unique_id=700010 groups=["limites"]]
+shape = SubResource("RectShape_right")
+
+[node name="Jugador" parent="." unique_id=700011 instance=ExtResource("2_nm")]
+position = Vector2(0, 650)
+
+[node name="ProfeMateBoss" parent="." unique_id=600001 instance=ExtResource("3_envir")]
+
+[node name="InventarioUI" parent="." unique_id=700013 instance=ExtResource("4_nm")]
+
+[node name="MenuPausa" parent="." unique_id=700014 instance=ExtResource("5_nm")]
+
+[node name="MenuMuerte" parent="." unique_id=700015 instance=ExtResource("6_nm")]
+
+[node name="QuizMatematica" type="CanvasLayer" parent="." unique_id=700016]
+process_mode = 3
+script = ExtResource("7_nm")
+
+[node name="Fondo" type="ColorRect" parent="QuizMatematica" unique_id=700017]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0.78)
+
+[node name="Panel" type="PanelContainer" parent="QuizMatematica" unique_id=700018]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -360.0
+offset_top = -220.0
+offset_right = 360.0
+offset_bottom = 220.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="QuizMatematica/Panel" unique_id=700019]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Pregunta" type="Label" parent="QuizMatematica/Panel/VBoxContainer" unique_id=700020]
+custom_minimum_size = Vector2(680, 90)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Pregunta"
+autowrap_mode = 3
+
+[node name="BtnA" type="Button" parent="QuizMatematica/Panel/VBoxContainer" unique_id=700021]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 17
+text = "A) ..."
+
+[node name="BtnB" type="Button" parent="QuizMatematica/Panel/VBoxContainer" unique_id=700022]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 17
+text = "B) ..."
+
+[node name="BtnC" type="Button" parent="QuizMatematica/Panel/VBoxContainer" unique_id=700023]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 17
+text = "C) ..."
+
+[node name="Feedback" type="Label" parent="QuizMatematica/Panel/VBoxContainer" unique_id=700024]
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+autowrap_mode = 3
+
+[connection signal="pressed" from="QuizMatematica/Panel/VBoxContainer/BtnA" to="QuizMatematica" method="_onBtnAPressed"]
+[connection signal="pressed" from="QuizMatematica/Panel/VBoxContainer/BtnB" to="QuizMatematica" method="_onBtnBPressed"]
+[connection signal="pressed" from="QuizMatematica/Panel/VBoxContainer/BtnC" to="QuizMatematica" method="_onBtnCPressed"]

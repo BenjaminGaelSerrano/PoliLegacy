@@ -1,18 +1,7 @@
 [gd_scene format=3 uid="uid://dbmh4s47qwsp0"]
 
 [ext_resource type="Script" uid="uid://b2pwlyo514kbs" path="res://Scripts/proyectil_jugador.gd" id="1_k7sm3"]
-[ext_resource type="Texture2D" uid="uid://ciqsw6ql4mitc" path="res://Assets/LibroProyectil (2).png" id="2_q9vbz"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_ulti1"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_q9vbz")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 5.0
-}]
+[ext_resource type="Texture2D" uid="uid://c7fi3lc83oju" path="res://Assets/LibroPotenciado (2).png" id="2_gkm14"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ulti1"]
 size = Vector2(64, 48)
@@ -22,11 +11,9 @@ collision_layer = 8
 collision_mask = 5
 script = ExtResource("1_k7sm3")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1055079280]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1061724469]
 scale = Vector2(0.45, 0.45)
-sprite_frames = SubResource("SpriteFrames_ulti1")
-animation = &"idle"
-autoplay = "idle"
+texture = ExtResource("2_gkm14")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=282429024]
 shape = SubResource("RectangleShape2D_ulti1")

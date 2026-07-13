@@ -5,7 +5,6 @@ var velocidad = 500.0
 var danio = 10
 var direccion = Vector2.ZERO
 func _ready():
-	sprite.play("idle")
 	timer_vida.start()
 func _physics_process(delta):
 	position += direccion * velocidad * delta

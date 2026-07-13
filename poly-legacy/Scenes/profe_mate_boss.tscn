@@ -1,0 +1,177 @@
+[gd_scene format=3 uid="uid://dfcwf3a3fau4n"]
+
+[ext_resource type="Script" path="res://Scripts/profe_mate_boss.gd" id="1_mate"]
+[ext_resource type="Texture2D" uid="uid://dxnwm6nu0cqky" path="res://Assets/Profesor_Matematica.png" id="2_mate"]
+
+[sub_resource type="AtlasTexture" id="AT_atacar1"]
+atlas = ExtResource("2_mate")
+region = Rect2(204, 0, 102, 102)
+
+[sub_resource type="AtlasTexture" id="AT_atacar2"]
+atlas = ExtResource("2_mate")
+region = Rect2(306, 0, 102, 102)
+
+[sub_resource type="AtlasTexture" id="AT_disparar1"]
+atlas = ExtResource("2_mate")
+region = Rect2(408, 0, 102, 102)
+
+[sub_resource type="AtlasTexture" id="AT_disparar2"]
+atlas = ExtResource("2_mate")
+region = Rect2(510, 0, 102, 102)
+
+[sub_resource type="AtlasTexture" id="AT_idle1"]
+atlas = ExtResource("2_mate")
+region = Rect2(0, 0, 102, 102)
+
+[sub_resource type="AtlasTexture" id="AT_idle2"]
+atlas = ExtResource("2_mate")
+region = Rect2(102, 0, 102, 102)
+
+[sub_resource type="AtlasTexture" id="AT_morir1"]
+atlas = ExtResource("2_mate")
+region = Rect2(0, 306, 102, 102)
+
+[sub_resource type="AtlasTexture" id="AT_morir2"]
+atlas = ExtResource("2_mate")
+region = Rect2(102, 306, 102, 102)
+
+[sub_resource type="AtlasTexture" id="AT_morir3"]
+atlas = ExtResource("2_mate")
+region = Rect2(204, 306, 102, 102)
+
+[sub_resource type="AtlasTexture" id="AT_recibir"]
+atlas = ExtResource("2_mate")
+region = Rect2(0, 204, 102, 102)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mate"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AT_atacar1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AT_atacar2")
+}],
+"loop": false,
+"name": &"atacar",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AT_disparar1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AT_disparar2")
+}],
+"loop": false,
+"name": &"disparar",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AT_idle1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AT_idle2")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AT_morir1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AT_morir2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AT_morir3")
+}],
+"loop": false,
+"name": &"morir",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AT_recibir")
+}],
+"loop": false,
+"name": &"recibir_danio",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="Circle_detect"]
+radius = 500.0
+
+[sub_resource type="CircleShape2D" id="Circle_contacto"]
+radius = 55.0
+
+[sub_resource type="CircleShape2D" id="Circle_hitbox"]
+radius = 64.0
+
+[node name="ProfeMateBoss" type="Node2D" unique_id=600001 groups=["enemigos"]]
+script = ExtResource("1_mate")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=600002]
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_mate")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="AreaDeteccion" type="Area2D" parent="." unique_id=600003]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDeteccion" unique_id=600004]
+shape = SubResource("Circle_detect")
+
+[node name="AreaContacto" type="Area2D" parent="." unique_id=600005]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaContacto" unique_id=600006]
+shape = SubResource("Circle_contacto")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=600007 groups=["enemigos"]]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=600008]
+shape = SubResource("Circle_hitbox")
+
+[node name="BarraVida" type="ProgressBar" parent="." unique_id=600009]
+offset_left = -50.0
+offset_top = -90.0
+offset_right = 50.0
+offset_bottom = -75.0
+max_value = 150.0
+value = 150.0
+show_percentage = false
+
+[node name="TimerInicio" type="Timer" parent="." unique_id=600010]
+wait_time = 2.0
+one_shot = true
+
+[node name="TimerAtaque" type="Timer" parent="." unique_id=600011]
+wait_time = 2.5
+one_shot = true
+
+[node name="TimerDobleDisparo" type="Timer" parent="." unique_id=600012]
+wait_time = 0.4
+one_shot = true
+
+[node name="TimerGolpe" type="Timer" parent="." unique_id=600013]
+wait_time = 0.5
+one_shot = true
+
+[node name="CamaraIntro" type="Camera2D" parent="." unique_id=600014]
+zoom = Vector2(1.5, 1.5)
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_alTerminarAnimacion"]
+[connection signal="body_entered" from="AreaDeteccion" to="." method="_alEntrarAlArea"]
+[connection signal="area_entered" from="AreaContacto" to="." method="_alEntrarContacto"]
+[connection signal="area_exited" from="AreaContacto" to="." method="_alSalirContacto"]
+[connection signal="timeout" from="TimerInicio" to="." method="_alTerminarTimerInicio"]
+[connection signal="timeout" from="TimerAtaque" to="." method="_alTerminarTimerAtaque"]
+[connection signal="timeout" from="TimerDobleDisparo" to="." method="_alTerminarTimerDobleDisparo"]
+[connection signal="timeout" from="TimerGolpe" to="." method="_alTerminarTimerGolpe"]

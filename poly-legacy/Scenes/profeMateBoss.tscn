@@ -1,0 +1,198 @@
+[gd_scene format=3 uid="uid://blsgxlgp1pfkp"]
+
+[ext_resource type="Script" uid="uid://dfcqbuaxcbgqi" path="res://Scripts/profeMateBoss.gd" id="1_mate"]
+[ext_resource type="Texture2D" uid="uid://dxnwm6nu0cqky" path="res://Assets/Profesor_Matematica.png" id="2_mate"]
+
+[sub_resource type="AtlasTexture" id="AT_atacar1"]
+atlas = ExtResource("2_mate")
+region = Rect2(204, 0, 102, 102)
+
+[sub_resource type="AtlasTexture" id="AT_atacar2"]
+atlas = ExtResource("2_mate")
+region = Rect2(306, 0, 102, 102)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wdnsu"]
+atlas = ExtResource("2_mate")
+region = Rect2(392, 0, 98, 86)
+
+[sub_resource type="AtlasTexture" id="AT_disparar2"]
+atlas = ExtResource("2_mate")
+region = Rect2(510, 0, 102, 102)
+
+[sub_resource type="AtlasTexture" id="AT_idle1"]
+atlas = ExtResource("2_mate")
+region = Rect2(0, 0, 102, 102)
+
+[sub_resource type="AtlasTexture" id="AT_idle2"]
+atlas = ExtResource("2_mate")
+region = Rect2(102, 0, 102, 102)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lw01c"]
+atlas = ExtResource("2_mate")
+region = Rect2(98, 340, 98, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ljp4e"]
+atlas = ExtResource("2_mate")
+region = Rect2(196, 340, 98, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2mkxy"]
+atlas = ExtResource("2_mate")
+region = Rect2(294, 340, 98, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ew3k"]
+atlas = ExtResource("2_mate")
+region = Rect2(392, 340, 98, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xbly5"]
+atlas = ExtResource("2_mate")
+region = Rect2(490, 340, 98, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5e3mv"]
+atlas = ExtResource("2_mate")
+region = Rect2(0, 272, 108, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rymsg"]
+atlas = ExtResource("2_mate")
+region = Rect2(108, 272, 108, 68)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mate"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AT_atacar1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AT_atacar2")
+}],
+"loop": false,
+"name": &"atacar",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wdnsu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AT_disparar2")
+}],
+"loop": false,
+"name": &"disparar",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AT_idle1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AT_idle2")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lw01c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ljp4e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2mkxy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ew3k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xbly5")
+}],
+"loop": false,
+"name": &"morir",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5e3mv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rymsg")
+}],
+"loop": false,
+"name": &"recibirDanio",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="Circle_detect"]
+radius = 500.0
+
+[sub_resource type="CircleShape2D" id="Circle_contacto"]
+radius = 55.0
+
+[sub_resource type="CircleShape2D" id="Circle_hitbox"]
+radius = 64.0
+
+[node name="ProfeMateBoss" type="Node2D" unique_id=600001 groups=["enemigos"]]
+script = ExtResource("1_mate")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=600002]
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_mate")
+animation = &"atacar"
+autoplay = "idle"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=600003]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=600004]
+shape = SubResource("Circle_detect")
+
+[node name="Area2D2" type="Area2D" parent="." unique_id=600005]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=600006]
+shape = SubResource("Circle_contacto")
+
+[node name="Area2D3" type="Area2D" parent="." unique_id=600007 groups=["enemigos"]]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3" unique_id=600008]
+shape = SubResource("Circle_hitbox")
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=600009]
+offset_left = -50.0
+offset_top = -90.0
+offset_right = 50.0
+offset_bottom = -75.0
+max_value = 150.0
+value = 150.0
+show_percentage = false
+
+[node name="Timer" type="Timer" parent="." unique_id=600010]
+wait_time = 2.0
+one_shot = true
+
+[node name="Timer2" type="Timer" parent="." unique_id=600011]
+wait_time = 2.5
+one_shot = true
+
+[node name="Timer3" type="Timer" parent="." unique_id=600012]
+wait_time = 0.4
+one_shot = true
+
+[node name="Timer4" type="Timer" parent="." unique_id=600013]
+wait_time = 0.5
+one_shot = true
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=600014]
+zoom = Vector2(1.5, 1.5)
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_alTerminarAnimacion"]
+[connection signal="body_entered" from="Area2D" to="." method="_alEntrarAlArea"]
+[connection signal="area_entered" from="Area2D2" to="." method="_alEntrarContacto"]
+[connection signal="area_exited" from="Area2D2" to="." method="_alSalirContacto"]
+[connection signal="timeout" from="Timer" to="." method="_alTerminarTimerInicio"]
+[connection signal="timeout" from="Timer2" to="." method="_alTerminarTimerAtaque"]
+[connection signal="timeout" from="Timer3" to="." method="_alTerminarTimerDobleDisparo"]
+[connection signal="timeout" from="Timer4" to="." method="_alTerminarTimerGolpe"]

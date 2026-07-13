@@ -1,37 +1,23 @@
-[gd_scene load_steps=4 format=3]
+[gd_scene format=3 uid="uid://brxsi2k3dgquj"]
 
-[ext_resource type="Script" path="res://Scripts/coleccionable_nievas.gd" id="1_nievas"]
-[ext_resource type="Texture2D" uid="uid://bugt7f8ekrbi6" path="res://icon.svg" id="2_m8tld"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_niev"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_m8tld")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 5.0
-}]
+[ext_resource type="Script" uid="uid://bues3uruafcl3" path="res://Scripts/coleccionable_nievas.gd" id="1_nievas"]
+[ext_resource type="Texture2D" uid="uid://cuetxxbwqjppv" path="res://Assets/EsfereaEscudo.png" id="2_kv1h1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_niev"]
 radius = 48.0
 
-[node name="ColeccionableNievas" type="Area2D"]
+[node name="ColeccionableNievas" type="Area2D" unique_id=15635168]
 script = ExtResource("1_nievas")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=998085009]
 modulate = Color(0.5, 0.7, 1, 1)
-position = Vector2(-2, -5)
-scale = Vector2(0.74, 0.78)
-sprite_frames = SubResource("SpriteFrames_niev")
-animation = &"idle"
-autoplay = "idle"
+scale = Vector2(0.25, 0.264)
+texture = ExtResource("2_kv1h1")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=178116754]
 shape = SubResource("CircleShape2D_niev")
 
-[node name="Aviso" type="Label" parent="."]
+[node name="Aviso" type="Label" parent="." unique_id=636745993]
 visible = false
 offset_left = -40.0
 offset_top = -55.0
