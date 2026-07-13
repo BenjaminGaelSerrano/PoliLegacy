@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cnhj56ar8fxs5" path="res://Scripts/jugador.gd" id="1_a4se9"]
 [ext_resource type="Texture2D" uid="uid://c4ugnc4f3l8ch" path="res://Assets/PersonajeIPM (2).png" id="2_es7oc"]
 [ext_resource type="Script" uid="uid://1pi5e4686150" path="res://Scripts/movimiento_jugador.gd" id="2_g1u6r"]
-[ext_resource type="Texture2D" uid="uid://tnp3uidxnn7g" path="res://Assets/ColectibleNievas.png" id="3_z5p0c"]
+[ext_resource type="Texture2D" uid="uid://cuetxxbwqjppv" path="res://Assets/EsfereaEscudo.png" id="4_es7oc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e13yb"]
 atlas = ExtResource("2_es7oc")
@@ -321,14 +321,14 @@ theme_override_constants/separation = 6
 [node name="Escudo1" type="TextureRect" parent="CanvasLayer/Escudos" unique_id=668304535]
 custom_minimum_size = Vector2(28, 28)
 layout_mode = 2
-texture = ExtResource("3_z5p0c")
+texture = ExtResource("4_es7oc")
 expand_mode = 1
 stretch_mode = 4
 
 [node name="Escudo2" type="TextureRect" parent="CanvasLayer/Escudos" unique_id=668304536]
 custom_minimum_size = Vector2(28, 28)
 layout_mode = 2
-texture = ExtResource("3_z5p0c")
+texture = ExtResource("4_es7oc")
 expand_mode = 1
 stretch_mode = 4
 

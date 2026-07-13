@@ -46,6 +46,10 @@ func _fin_tutorial():
 	ManejadorJuego.pasarDeNivel()
 func saltarTutorial():
 	tutoActivo=false
-	BusEventos.paso_tutorial = 0
-	ManejadorJuego.nivelActual = 0
+	BusEventos.paso_tutorial=0
+	if not Inventario.tieneItem("libro"):
+		var icono=load("res://Assets/IconoLibro.png")
+		Inventario.agregarItem("libro","arma",{"titulo":"Matemática Básica","icono":icono})
+	BusEventos.libroAgarrado.emit()
+	ManejadorJuego.nivelActual=0
 	ManejadorJuego.pasarDeNivel()

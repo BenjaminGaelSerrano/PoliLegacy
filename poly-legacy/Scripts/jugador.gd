@@ -63,6 +63,7 @@ func _actualizar_escudos():
 func _activar_escudo():
 	escudo_activo = true
 	sprite.modulate = Color(0.4, 0.6, 1.0)
+	BusEventos.escudoUsado.emit()
 func _al_derrotar_jefe(_nivel):
 	jefe_derrotado = true
 func _ajustar_limites_camara():

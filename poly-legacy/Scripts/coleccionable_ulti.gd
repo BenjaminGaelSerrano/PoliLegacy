@@ -27,4 +27,3 @@ func _recoger():
 	sprite.visible=false
 	Inventario.agregarItem("ulti_guada", "habilidad", {"titulo": "Mapa", "icono": ICONO})
 	BusEventos.coleccionableObtenido.emit()
-	ManejadorJuego.pasarDeNivel()

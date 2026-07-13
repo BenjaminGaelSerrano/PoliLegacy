@@ -25,6 +25,8 @@ func _revisar_puerta():
 		var id_dueno = colisionador.shape_find_owner(colision.get_collider_shape_index())
 		var forma = colisionador.shape_owner_get_owner(id_dueno)
 		if forma.is_in_group("puerta") and jugador.jefe_derrotado:
+			if not ManejadorJuego.miniTutCompleto:
+				return
 			var item_requerido = forma.get_meta("item_requerido", "")
 			if item_requerido != "" and not Inventario.tieneItem(item_requerido):
 				return

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c1pgqq6pdmxn1"]
 
-[ext_resource type="Script" uid="uid://oax8qh1ig3mb" path="res://Scripts/proyectil_guada.gd" id="1_wqf5r"]
+[ext_resource type="Script" uid="uid://d1t8wlsyt81gm" path="res://Scripts/proyectil_fiore.gd" id="1_wqf5r"]
 [ext_resource type="Texture2D" uid="uid://br6oim0wyuesc" path="res://Assets/proyectilMatematica1.png" id="2_wqf5r"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5ny1c"]

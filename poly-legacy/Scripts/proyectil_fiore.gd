@@ -1,7 +1,7 @@
 extends Area2D
 @onready var sprite = $AnimatedSprite2D
 var velocidad = 600.0
-var danio = 40
+var danio = 80
 var direccion = Vector2.ZERO
 func _physics_process(delta):
 	position += direccion * velocidad * delta

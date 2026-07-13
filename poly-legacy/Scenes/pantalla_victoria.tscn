@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://7clbkiyiklp"]
 
-[ext_resource type="Script" uid="uid://d0yw4yp6x5wt8" path="res://Scripts/menu_victoria.gd" id="1_victoria"]
+[ext_resource type="Script" path="res://Scripts/menu_victoria.gd" id="1_victoria"]
 [ext_resource type="Texture2D" uid="uid://bgck167qheux6" path="res://Assets/Victoria.png" id="2_imgvictoria"]
 [ext_resource type="FontFile" uid="uid://dolbx7jvjeds2" path="res://Assets/Fonts/Schoolbell-Regular.ttf" id="2_schoolbell"]
 
@@ -34,6 +34,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -3.0
+offset_top = -3.0
+offset_right = -3.0
+offset_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_imgvictoria")
@@ -47,30 +51,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -220.0
-offset_top = -130.0
-offset_right = 220.0
-offset_bottom = 130.0
+offset_left = -225.0
+offset_top = 230.0
+offset_right = 215.0
+offset_bottom = 490.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 28
-
-[node name="Titulo" type="Label" parent="VBoxContainer" unique_id=239223287]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.95, 0.88, 0.5, 1)
-theme_override_fonts/font = ExtResource("2_schoolbell")
-theme_override_font_sizes/font_size = 56
-text = "¡Aprobaste!"
-horizontal_alignment = 1
-uppercase = true
-
-[node name="Subtitulo" type="Label" parent="VBoxContainer" unique_id=1943421118]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.93, 0.93, 0.87, 1)
-theme_override_fonts/font = ExtResource("2_schoolbell")
-theme_override_font_sizes/font_size = 20
-text = "Completaste el recorrido del IPM"
-horizontal_alignment = 1
 
 [node name="Button" type="Button" parent="VBoxContainer" unique_id=674520950]
 layout_mode = 2

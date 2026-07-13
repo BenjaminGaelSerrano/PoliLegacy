@@ -11,16 +11,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_menuinicio")
 
-[node name="Fondo" type="TextureRect" parent="." unique_id=1988736085]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-expand_mode = 1
-stretch_mode = 6
-
 [node name="Botones" type="VBoxContainer" parent="." unique_id=740902717]
 layout_mode = 1
 anchors_preset = 8
@@ -45,3 +35,4 @@ layout_mode = 2
 text = "Salir"
 
 [connection signal="pressed" from="Botones/Jugar" to="." method="_jugar"]
+[connection signal="pressed" from="Botones/Salir" to="." method="_salir"]

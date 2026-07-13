@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dl7m5tpq0c2fj" path="res://Scenes/Inventario.tscn" id="3_inv"]
 [ext_resource type="PackedScene" uid="uid://0845v8ymeqyl" path="res://Scenes/MenuPausa.tscn" id="4_pausa"]
 [ext_resource type="PackedScene" uid="uid://bsrvinv0tqkau" path="res://Scenes/MenuMuerte.tscn" id="5_muerte"]
+[ext_resource type="PackedScene" path="res://Scenes/MiniTutorialNivel.tscn" id="6_minitut"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_jc2gg"]
 a = Vector2(-689, -294)
@@ -60,6 +61,9 @@ position = Vector2(555, -103)
 [node name="MenuPausa" parent="." unique_id=288382443 instance=ExtResource("4_pausa")]
 
 [node name="MenuMuerte" parent="." unique_id=795337533 instance=ExtResource("5_muerte")]
+
+[node name="MiniTutorialNivel" parent="." instance=ExtResource("6_minitut")]
+tipo = "escudo"
 
 [node name="Puerta" type="StaticBody2D" parent="." unique_id=127790441]
 

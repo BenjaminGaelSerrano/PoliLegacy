@@ -27,4 +27,3 @@ func _recoger():
 	sprite.visible=false
 	Inventario.agregarItem("escudo_nievas", "habilidad", {"titulo": "Escudo de Nieva", "icono": ICONO})
 	BusEventos.coleccionableObtenido.emit()
-	ManejadorJuego.pasarDeNivel()

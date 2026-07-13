@@ -1,6 +1,7 @@
 extends Node2D
 var nivelActual=0
 var transicionando=false
+var miniTutCompleto=true
 const PASILLO="res://Scenes/pasillo_niveles.tscn"
 const VICTORIA="res://Scenes/pantalla_victoria.tscn"
 const TOTAL_NIVELES=3
@@ -16,4 +17,5 @@ func pasarDeNivel():
 func reiniciar():
 	nivelActual=0
 	transicionando=false
+	miniTutCompleto=true
 	Inventario.limpiar()

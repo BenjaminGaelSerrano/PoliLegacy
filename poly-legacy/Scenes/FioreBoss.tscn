@@ -1,61 +1,61 @@
 [gd_scene format=3 uid="uid://blsgxlgp1pfkp"]
 
-[ext_resource type="Script" path="res://Scripts/profeMateBoss.gd" id="1_mate"]
-[ext_resource type="Texture2D" uid="uid://dxnwm6nu0cqky" path="res://Assets/Profesor_Matematica.png" id="2_mate"]
+[ext_resource type="Script" uid="uid://dfcqbuaxcbgqi" path="res://Scripts/profeMateBoss.gd" id="1_tboxp"]
+[ext_resource type="Texture2D" uid="uid://dxnwm6nu0cqky" path="res://Assets/Profesor_Matematica.png" id="2_pvg0m"]
 
 [sub_resource type="CircleShape2D" id="Circle_body"]
 radius = 48.0
 
 [sub_resource type="AtlasTexture" id="AT_atacar1"]
-atlas = ExtResource("2_mate")
+atlas = ExtResource("2_pvg0m")
 region = Rect2(204, 0, 102, 102)
 
 [sub_resource type="AtlasTexture" id="AT_atacar2"]
-atlas = ExtResource("2_mate")
+atlas = ExtResource("2_pvg0m")
 region = Rect2(306, 0, 102, 102)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wdnsu"]
-atlas = ExtResource("2_mate")
+atlas = ExtResource("2_pvg0m")
 region = Rect2(392, 0, 98, 86)
 
 [sub_resource type="AtlasTexture" id="AT_disparar2"]
-atlas = ExtResource("2_mate")
+atlas = ExtResource("2_pvg0m")
 region = Rect2(510, 0, 102, 102)
 
 [sub_resource type="AtlasTexture" id="AT_idle1"]
-atlas = ExtResource("2_mate")
+atlas = ExtResource("2_pvg0m")
 region = Rect2(0, 0, 102, 102)
 
 [sub_resource type="AtlasTexture" id="AT_idle2"]
-atlas = ExtResource("2_mate")
+atlas = ExtResource("2_pvg0m")
 region = Rect2(102, 0, 102, 102)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lw01c"]
-atlas = ExtResource("2_mate")
+atlas = ExtResource("2_pvg0m")
 region = Rect2(98, 340, 98, 68)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ljp4e"]
-atlas = ExtResource("2_mate")
+atlas = ExtResource("2_pvg0m")
 region = Rect2(196, 340, 98, 68)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2mkxy"]
-atlas = ExtResource("2_mate")
+atlas = ExtResource("2_pvg0m")
 region = Rect2(294, 340, 98, 68)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0ew3k"]
-atlas = ExtResource("2_mate")
+atlas = ExtResource("2_pvg0m")
 region = Rect2(392, 340, 98, 68)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xbly5"]
-atlas = ExtResource("2_mate")
+atlas = ExtResource("2_pvg0m")
 region = Rect2(490, 340, 98, 68)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5e3mv"]
-atlas = ExtResource("2_mate")
+atlas = ExtResource("2_pvg0m")
 region = Rect2(0, 272, 108, 68)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rymsg"]
-atlas = ExtResource("2_mate")
+atlas = ExtResource("2_pvg0m")
 region = Rect2(108, 272, 108, 68)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mate"]
@@ -136,7 +136,7 @@ radius = 64.0
 
 [node name="ProfeMateBoss" type="CharacterBody2D" unique_id=600001 groups=["enemigos"]]
 collision_layer = 8
-script = ExtResource("1_mate")
+script = ExtResource("1_tboxp")
 
 [node name="CollisionShape2D_body" type="CollisionShape2D" parent="." unique_id=600015]
 shape = SubResource("Circle_body")

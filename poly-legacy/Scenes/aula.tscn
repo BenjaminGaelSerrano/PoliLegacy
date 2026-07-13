@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dl7m5tpq0c2fj" path="res://Scenes/Inventario.tscn" id="4_inv"]
 [ext_resource type="PackedScene" path="res://Scenes/MenuPausa.tscn" id="5_pausa"]
 [ext_resource type="PackedScene" path="res://Scenes/MenuMuerte.tscn" id="6_muerte"]
+[ext_resource type="PackedScene" path="res://Scenes/MiniTutorialNivel.tscn" id="7_minitut"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dqnrw"]
 size = Vector2(1220, 20)
@@ -103,3 +104,6 @@ position = Vector2(240, -635)
 [node name="MenuPausa" parent="." instance=ExtResource("5_pausa")]
 
 [node name="MenuMuerte" parent="." instance=ExtResource("6_muerte")]
+
+[node name="MiniTutorialNivel" parent="." instance=ExtResource("7_minitut")]
+tipo = "ulti"
