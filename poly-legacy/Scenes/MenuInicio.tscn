@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://drib26xsqk2op"]
 
 [ext_resource type="Script" uid="uid://8efsmyhu5xv2" path="res://Scripts/menu_inicio.gd" id="1_menuinicio"]
+[ext_resource type="Texture2D" uid="uid://bauwf1s0qvoxn" path="res://Assets/WhatsApp Image 2026-07-13 at 4.01.33 PM.jpeg" id="2_l5kx3"]
 
 [node name="MenuInicio" type="Control" unique_id=1088715518]
 layout_mode = 3
@@ -11,6 +12,14 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_menuinicio")
 
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1755724266]
+layout_mode = 0
+offset_left = -224.0
+offset_top = -250.0
+offset_right = 1376.0
+offset_bottom = 650.0
+texture = ExtResource("2_l5kx3")
+
 [node name="Botones" type="VBoxContainer" parent="." unique_id=740902717]
 layout_mode = 1
 anchors_preset = 8
@@ -19,9 +28,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -110.0
-offset_top = -70.0
+offset_top = 209.0
 offset_right = 110.0
-offset_bottom = 70.0
+offset_bottom = 349.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 20
