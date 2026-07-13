@@ -1,11 +1,10 @@
 extends Node2D
-@onready var etiqueta=$CanvasLayer/Label
-@onready var fondo=$CanvasLayer/ColorRect
-@onready var boton=$CanvasLayer/Button
+@onready var etiqueta:Label=get_node_or_null("CanvasLayer/Label")
+@onready var fondo:ColorRect=get_node_or_null("CanvasLayer/ColorRect")
+@onready var boton:Button=get_node_or_null("CanvasLayer/Button")
 var pasoActual=0
 var tutoActivo=true
 func _ready() -> void:
-	boton.pressed.connect(saltarTutorial)
 	BusEventos.jugadorSeMovio.connect(_on_movimiento)
 	BusEventos.jugadorHablaConNpc.connect(_on_hablo)
 	BusEventos.libroEntregado.connect(_on_libro_entregado)
@@ -16,6 +15,8 @@ func _ready() -> void:
 func cargarPaso(n: int):
 	pasoActual=n
 	BusEventos.paso_tutorial = n
+	if not is_instance_valid(etiqueta):
+		return
 	match n:
 		1: etiqueta.text = "Usá WASD para moverte"
 		2: etiqueta.text = "Presioná E para hablar con Charly"
@@ -41,8 +42,10 @@ func _fin_tutorial():
 	BusEventos.paso_tutorial = 0
 	etiqueta.text="¡Ya estás para jugar! Comenzá tu aventura en el poli'"
 	await get_tree().create_timer(2.0).timeout
+	ManejadorJuego.nivelActual = 0
 	ManejadorJuego.pasarDeNivel()
 func saltarTutorial():
 	tutoActivo=false
 	BusEventos.paso_tutorial = 0
+	ManejadorJuego.nivelActual = 0
 	ManejadorJuego.pasarDeNivel()

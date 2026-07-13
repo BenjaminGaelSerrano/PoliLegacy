@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wnxmvfgytmfi"
-path="res://.godot/imported/pasilloFinal.png-873af41ac58fd00c53136fcd73996d89.ctex"
+uid="uid://cuetxxbwqjppv"
+path="res://.godot/imported/EsfereaEscudo.png-5a57046ba6c9b6954c7dd47ee0faba30.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/pasilloFinal.png"
-dest_files=["res://.godot/imported/pasilloFinal.png-873af41ac58fd00c53136fcd73996d89.ctex"]
+source_file="res://Assets/EsfereaEscudo.png"
+dest_files=["res://.godot/imported/EsfereaEscudo.png-5a57046ba6c9b6954c7dd47ee0faba30.ctex"]
 
 [params]
 

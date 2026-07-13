@@ -9,8 +9,6 @@ var libroYaEntregado=false
 func _ready() -> void:
 	panel.visible=false
 	sprite.play("idle")
-	body_entered.connect(_on_body_entered)
-	body_exited.connect(_on_body_exited)
 func _on_body_entered(body):
 	if body.is_in_group("jugador"):
 		jugadorCerca=true

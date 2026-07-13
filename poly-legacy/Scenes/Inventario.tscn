@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://deev17apvwgh4"]
 
 [ext_resource type="Script" uid="uid://dmy8hj83u34vy" path="res://Scripts/inventarioUI.gd" id="1_i5wj1"]
-[ext_resource type="Texture2D" uid="uid://csbiq2rul23sc" path="res://Assets/GrillaObjetos.jpg" id="2_grilla"]
+[ext_resource type="Texture2D" uid="uid://duputhqs1gkfi" path="res://Assets/GrillaObjetos.png" id="2_grilla"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_grilla"]
 atlas = ExtResource("2_grilla")
-region = Rect2(292, 84, 452, 452)
+region = Rect2(100, 5, 424, 390)
 
 [node name="CanvasLayer" type="CanvasLayer" unique_id=1161616043]
 process_mode = 3

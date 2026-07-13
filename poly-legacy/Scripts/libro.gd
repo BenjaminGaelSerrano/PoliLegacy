@@ -1,9 +1,10 @@
 extends Node2D
-@export var titulo="electricidad basica desordenada"
-@export var contenido="La corriente eléctrica se mide en amperes aunque para calcular el voltaje basta con multiplicar la resistencia por la corriente, eso es la Ley de Ohm: V=I*R, también se escribe como I=V/R o R=V/I según lo que quieras calcular.
-Los circuitos en serie suman sus resistencias pero la corriente es la misma en todos los componentes, mientras que en paralelo el voltaje es el mismo en cada rama aunque la corriente se divide y la resistencia total queda menor que la más chica.
-La potencia eléctrica se calcula con P=V*I y se mide en watts, un conductor permite el paso de la corriente porque tiene electrones libres y un aislante no los tiene así que no pasa nada, los transformadores suben o bajan el voltaje sin partes móviles a diferencia de los generadores.
-La diferencia de potencial es lo que empuja a los electrones a moverse desde el polo negativo al positivo de la pila aunque la corriente convencional se define al revés, y el campo eléctrico va de cargas positivas a negativas."
+@export var titulo="Matemática Básica"
+@export var contenido="La matemática trabaja con números y operaciones. La suma y la resta son operaciones inversas: si sumás 5 y después restás 5 volvés al mismo número. La multiplicación es una suma repetida y la división es su inversa.
+Las fracciones representan partes de un entero. El numerador indica cuántas partes tomamos y el denominador en cuántas está dividido el total. Para sumar fracciones con distinto denominador hay que encontrar el mínimo común múltiplo.
+Una ecuación es una igualdad con una incógnita, generalmente llamada 'x'. Para resolverla hay que despejar la variable haciendo la misma operación a ambos lados: si tenés x+3=7, restás 3 en los dos lados y obtenés x=4.
+El orden de las operaciones es fundamental: primero paréntesis, después potencias, luego multiplicación y división de izquierda a derecha, y por último suma y resta de izquierda a derecha."
+const ICONO = preload("res://Assets/LibroProyectil (2).png")
 @onready var apretarE=$Label
 @onready var panel=$CanvasLayer/PanelContainer
 @onready var tituloLabel=$CanvasLayer/PanelContainer/VBoxContainer/Titulo
@@ -12,14 +13,11 @@ La diferencia de potencial es lo que empuja a los electrones a moverse desde el 
 var jugadorCerca=false
 var agarrado=false
 var abierto=false
-var datos_item={"titulo": "Libro de Electricidad", "icono": "res://Assets/LibroProyectil (2).png"}
+var datos_item={"titulo": "Matemática Básica", "icono": ICONO}
 func _ready() -> void:
 	apretarE.visible=false
 	panel.visible=false
 	$Sprite2D.visible=false
-	zonaDeteccion.monitoring=false
-	zonaDeteccion.body_entered.connect(_on_body_entered)
-	zonaDeteccion.body_exited.connect(_on_body_exited)
 	BusEventos.libroEntregado.connect(_on_libro_entregado_por_npc)
 func _on_libro_entregado_por_npc():
 	if not agarrado:

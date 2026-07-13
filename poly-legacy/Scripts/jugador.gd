@@ -1,20 +1,15 @@
 extends CharacterBody2D
-
 const ProyectilJugador = preload("res://Scenes/proyectil_jugador.tscn")
 const ProyectilUlti = preload("res://Scenes/proyectil_ulti.tscn")
-
 const RECARGA_ULTI = 10.0
 const ESCUDOS_MAX = 2
-
 @export var danio = 10
-
 @onready var sprite = $AnimatedSprite2D
 @onready var timer_disparo = $TimerDisparo
 @onready var barra_vida = $CanvasLayer/BarraVida
 @onready var barra_ulti = $CanvasLayer/BarraUlti
 @onready var contenedor_escudos = $CanvasLayer/Escudos
 @onready var camara = $Camera2D
-
 var vida_max = 100
 var vida_actual = 100
 var esta_muerto = false
@@ -26,31 +21,23 @@ var ulti_lista = false
 var escudo_desbloqueado = false
 var escudos_restantes = 0
 var escudo_activo = false
-
 func _ready():
 	add_to_group("jugadores")
 	vida_actual = vida_max
-
 	_ajustar_limites_camara()
-
 	BusEventos.jefeDerrotado.connect(_al_derrotar_jefe)
 	BusEventos.libroAgarrado.connect(_al_agarrar_libro)
 	BusEventos.coleccionableObtenido.connect(_al_obtener_coleccionable)
-
 	# Si en una escena anterior ya se desbloqueó la ulti, el inventario (autoload)
 	# lo recuerda: restauramos el estado al instanciar este jugador.
 	_desbloquear_ulti_si_corresponde()
 	_desbloquear_escudo_si_corresponde()
-
 	sprite.play("idle")
-
 func _al_agarrar_libro():
 	libro_equipado = true
-
 func _al_obtener_coleccionable():
 	_desbloquear_ulti_si_corresponde()
 	_desbloquear_escudo_si_corresponde()
-
 func _desbloquear_ulti_si_corresponde():
 	if ulti_desbloqueada:
 		return
@@ -59,7 +46,6 @@ func _desbloquear_ulti_si_corresponde():
 		ulti_lista = true
 		barra_ulti.visible = true
 		barra_ulti.value = barra_ulti.max_value
-
 func _desbloquear_escudo_si_corresponde():
 	if escudo_desbloqueado:
 		return
@@ -68,7 +54,6 @@ func _desbloquear_escudo_si_corresponde():
 		escudos_restantes = ESCUDOS_MAX
 		contenedor_escudos.visible = true
 		_actualizar_escudos()
-
 func _actualizar_escudos():
 	var iconos = contenedor_escudos.get_children()
 	for i in range(iconos.size()):
@@ -76,24 +61,19 @@ func _actualizar_escudos():
 			iconos[i].modulate = Color(0.3, 0.5, 1.0)
 		else:
 			iconos[i].modulate = Color(0.4, 0.4, 0.4)
-
 func _activar_escudo():
 	escudo_activo = true
 	sprite.modulate = Color(0.4, 0.6, 1.0)
-
 func _al_derrotar_jefe(_nivel):
 	jefe_derrotado = true
-
 func _ajustar_limites_camara():
 	var nodos = get_tree().get_nodes_in_group("limites")
 	if nodos.is_empty():
 		return
-
 	var min_x = INF
 	var min_y = INF
 	var max_x = -INF
 	var max_y = -INF
-
 	for nodo in nodos:
 		var extension = nodo.shape.size / 2
 		var centro = nodo.global_position
@@ -101,12 +81,10 @@ func _ajustar_limites_camara():
 		max_x = max(max_x, centro.x + extension.x)
 		min_y = min(min_y, centro.y - extension.y)
 		max_y = max(max_y, centro.y + extension.y)
-
 	camara.limit_left = int(min_x)
 	camara.limit_right = int(max_x)
 	camara.limit_top = int(min_y)
 	camara.limit_bottom = int(max_y)
-
 func _input(event):
 	if esta_muerto:
 		return
@@ -121,7 +99,6 @@ func _input(event):
 	elif event.is_action_pressed("escudo") and escudo_desbloqueado and escudos_restantes > 0 and not escudo_activo:
 		if not en_tutorial:
 			_activar_escudo()
-
 func _disparar():
 	sprite.play("disparar")
 	var proyectil = ProyectilJugador.instantiate()
@@ -131,7 +108,6 @@ func _disparar():
 	proyectil.rotation = proyectil.direccion.angle()
 	proyectil.danio = danio
 	BusEventos.disparoRealizado.emit()
-
 func _disparar_ulti():
 	sprite.play("disparar")
 	var proyectil = ProyectilUlti.instantiate()
@@ -141,16 +117,13 @@ func _disparar_ulti():
 	proyectil.rotation = proyectil.direccion.angle()
 	proyectil.danio = danio * 3
 	BusEventos.ultiRealizada.emit()
-
 	ulti_lista = false
 	barra_ulti.value = 0
 	var tween = create_tween()
 	tween.tween_property(barra_ulti, "value", barra_ulti.max_value, RECARGA_ULTI)
 	tween.tween_callback(_recargar_ulti)
-
 func _recargar_ulti():
 	ulti_lista = true
-
 func recibir_danio(cantidad):
 	if esta_muerto or recibiendo_danio:
 		return
@@ -169,14 +142,12 @@ func recibir_danio(cantidad):
 	else:
 		recibiendo_danio = true
 		sprite.play("RecibirDanio")
-
 func _alTerminarAnimacion():
 	if sprite.animation == "RecibirDanio":
 		recibiendo_danio = false
 		sprite.play("idle")
 	elif sprite.animation == "disparar":
 		sprite.play("idle")
-
 func _morir():
 	esta_muerto = true
 	BusEventos.jugadorMuerto.emit()

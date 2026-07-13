@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bsrvinv0tqkau"]
 
 [ext_resource type="Script" uid="uid://ww7q7e3hhqbn" path="res://Scripts/menu_muerte.gd" id="1_menumuerte"]
-[ext_resource type="Texture2D" uid="uid://mkr88cyf6tmk" path="res://Assets/MenuMuerte.jpg" id="2_img"]
+[ext_resource type="Texture2D" uid="uid://bwm7jsjgauwox" path="res://Assets/MenuMuerte.png" id="2_img"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_titulo"]
 atlas = ExtResource("2_img")
@@ -69,18 +69,30 @@ theme_override_constants/separation = 15
 [node name="Reintentar" type="Button" parent="Menu/Panel/Botones" unique_id=2106876635]
 custom_minimum_size = Vector2(0, 53)
 layout_mode = 2
+theme_override_colors/font_color = Color(0.98, 0.9, 0.65, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 0.75, 1)
+theme_override_colors/font_pressed_color = Color(0.75, 0.65, 0.35, 1)
+theme_override_font_sizes/font_size = 20
 text = "Reintentar"
 flat = true
 
 [node name="MenuPrincipal" type="Button" parent="Menu/Panel/Botones" unique_id=1868906386]
 custom_minimum_size = Vector2(0, 53)
 layout_mode = 2
+theme_override_colors/font_color = Color(0.98, 0.9, 0.65, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 0.75, 1)
+theme_override_colors/font_pressed_color = Color(0.75, 0.65, 0.35, 1)
+theme_override_font_sizes/font_size = 20
 text = "Menú principal"
 flat = true
 
 [node name="Salir" type="Button" parent="Menu/Panel/Botones" unique_id=116616408]
 custom_minimum_size = Vector2(0, 53)
 layout_mode = 2
+theme_override_colors/font_color = Color(0.98, 0.9, 0.65, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 0.75, 1)
+theme_override_colors/font_pressed_color = Color(0.75, 0.65, 0.35, 1)
+theme_override_font_sizes/font_size = 20
 text = "Salir"
 flat = true
 

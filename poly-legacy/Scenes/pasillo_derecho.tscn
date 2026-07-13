@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://buq2yxwjpdllh"]
 
 [ext_resource type="PackedScene" uid="uid://cp200vyf0nbid" path="res://Scenes/Jugador.tscn" id="1_d8m4x"]
-[ext_resource type="PackedScene" uid="uid://dl7m5tpq0c2fj" path="res://Scenes/Inventario.tscn" id="2_inv"]
+[ext_resource type="PackedScene" uid="uid://deev17apvwgh4" path="res://Scenes/Inventario.tscn" id="2_inv"]
 [ext_resource type="PackedScene" uid="uid://0845v8ymeqyl" path="res://Scenes/MenuPausa.tscn" id="3_pausa"]
 [ext_resource type="PackedScene" uid="uid://bsrvinv0tqkau" path="res://Scenes/MenuMuerte.tscn" id="4_muerte"]
 

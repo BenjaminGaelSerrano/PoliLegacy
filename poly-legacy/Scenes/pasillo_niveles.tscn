@@ -33,6 +33,15 @@ size = Vector2(147, 303)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1wc7b"]
 size = Vector2(176.5, 276.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_door1"]
+size = Vector2(110, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_door2"]
+size = Vector2(120, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_door3"]
+size = Vector2(75, 30)
+
 [node name="PasilloMedio" type="Node2D" unique_id=418273991]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1092837465]
@@ -46,42 +55,85 @@ size = Vector2(176.5, 276.5)
 [node name="MenuMuerte" parent="." unique_id=213228351 instance=ExtResource("4_hsgr7")]
 
 [node name="PasilloFinal" type="Sprite2D" parent="." unique_id=86413490]
+z_index = -1
 position = Vector2(1.9999905, -263)
 scale = Vector2(1.0207337, 1)
 texture = ExtResource("5_u24bv")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=362304608]
+[node name="Pared1" type="StaticBody2D" parent="." unique_id=900001]
 position = Vector2(-384.25, 314)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pared1" unique_id=362304608]
 shape = SubResource("RectangleShape2D_tp3rt")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=637186502]
+[node name="Pared2" type="StaticBody2D" parent="." unique_id=900002]
 position = Vector2(386.75, 311.75)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Pared2" unique_id=637186502]
 shape = SubResource("RectangleShape2D_ixfsm")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="." unique_id=554128619]
+[node name="Pared3" type="StaticBody2D" parent="." unique_id=900003]
 position = Vector2(670, -247.75)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Pared3" unique_id=554128619]
 shape = SubResource("RectangleShape2D_7xcna")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="." unique_id=971617283]
+[node name="Pared4" type="StaticBody2D" parent="." unique_id=900004]
 position = Vector2(-693, -245)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Pared4" unique_id=971617283]
 shape = SubResource("RectangleShape2D_hsgr7")
 
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="." unique_id=1228489610]
+[node name="Pared5" type="StaticBody2D" parent="." unique_id=900005]
 position = Vector2(-532.5, -684.5)
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Pared5" unique_id=1228489610]
 shape = SubResource("RectangleShape2D_u24bv")
 
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="." unique_id=1686676647]
+[node name="Pared6" type="StaticBody2D" parent="." unique_id=900006]
 position = Vector2(-278, -680)
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Pared6" unique_id=1686676647]
 shape = SubResource("RectangleShape2D_m4tn0")
 
-[node name="CollisionShape2D7" type="CollisionShape2D" parent="." unique_id=547967711]
+[node name="Pared7" type="StaticBody2D" parent="." unique_id=900007]
 position = Vector2(-10.75, -669)
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Pared7" unique_id=547967711]
 shape = SubResource("RectangleShape2D_uowq0")
 
-[node name="CollisionShape2D8" type="CollisionShape2D" parent="." unique_id=357877493]
+[node name="Pared8" type="StaticBody2D" parent="." unique_id=900008]
 position = Vector2(269.5, -657.5)
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="Pared8" unique_id=357877493]
 shape = SubResource("RectangleShape2D_d1uca")
 
-[node name="CollisionShape2D9" type="CollisionShape2D" parent="." unique_id=16285121]
+[node name="Pared9" type="StaticBody2D" parent="." unique_id=900009]
 position = Vector2(516.75, -665.75)
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="Pared9" unique_id=16285121]
 shape = SubResource("RectangleShape2D_1wc7b")
+
+[node name="Puerta1" type="StaticBody2D" parent="." unique_id=800001]
+position = Vector2(-149, -521)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Puerta1" unique_id=800002 groups=["puerta_entrada"]]
+shape = SubResource("RectangleShape2D_door1")
+metadata/nivel_requerido = 1
+metadata/escena_destino = "res://Scenes/aula.tscn"
+
+[node name="Puerta2" type="StaticBody2D" parent="." unique_id=800003]
+position = Vector2(131, -511)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Puerta2" unique_id=800004 groups=["puerta_entrada"]]
+shape = SubResource("RectangleShape2D_door2")
+metadata/nivel_requerido = 2
+metadata/escena_destino = "res://Scenes/taller_electricidad.tscn"
+
+[node name="Puerta3" type="StaticBody2D" parent="." unique_id=800005]
+position = Vector2(385, -517)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Puerta3" unique_id=800006 groups=["puerta_entrada"]]
+shape = SubResource("RectangleShape2D_door3")
+metadata/nivel_requerido = 3
+metadata/escena_destino = ""

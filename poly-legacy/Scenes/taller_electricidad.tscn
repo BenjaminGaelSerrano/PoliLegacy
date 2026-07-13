@@ -62,7 +62,7 @@ position = Vector2(555, -103)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Puerta" unique_id=965289866 groups=["puerta"]]
 shape = SubResource("SegmentShape2D_jc2gg")
-metadata/escena_destino = "res://Scenes/pasillo_derecho.tscn"
+metadata/escena_destino = "res://Scenes/pasillo_niveles.tscn"
 metadata/item_requerido = "escudo_nievas"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2074416131]

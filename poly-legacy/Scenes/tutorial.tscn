@@ -159,11 +159,13 @@ position = Vector2(37.75, -473)
 shape = SubResource("RectangleShape2D_t6ver")
 
 [node name="Jugador" parent="." unique_id=804398970 instance=ExtResource("2_i6t4g")]
-
-[node name="CanvasLayer2" parent="." unique_id=1161616043 instance=ExtResource("3_p1f1o")]
+position = Vector2(48, -9)
 
 [node name="Charly" parent="." unique_id=1176479466 instance=ExtResource("3_p8jf4")]
-position = Vector2(480, -581)
+z_index = 2
+position = Vector2(430, -581)
+
+[node name="CanvasLayer2" parent="." unique_id=1161616043 instance=ExtResource("3_p1f1o")]
 
 [node name="Libro" parent="." unique_id=1449031924 instance=ExtResource("4_p1f1o")]
 
@@ -216,3 +218,5 @@ text = "SALTAR TUTORIAL"
 [node name="MenuPausa" parent="." unique_id=633251792 instance=ExtResource("5_pausa")]
 
 [node name="MenuMuerte" parent="." unique_id=1205090224 instance=ExtResource("7_muerte")]
+
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="saltarTutorial"]

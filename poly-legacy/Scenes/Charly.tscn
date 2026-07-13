@@ -56,29 +56,27 @@ animations = [{
 size = Vector2(37, 46)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+content_margin_left = 14.0
+content_margin_top = 10.0
+content_margin_right = 14.0
+content_margin_bottom = 10.0
 bg_color = Color(0.07, 0.17, 0.11, 0.96)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
-border_color = Color(0.70, 0.70, 0.65, 1)
+border_color = Color(0.7, 0.7, 0.65, 1)
 corner_radius_top_left = 6
 corner_radius_top_right = 6
 corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
-content_margin_left = 14.0
-content_margin_right = 14.0
-content_margin_top = 10.0
-content_margin_bottom = 10.0
 
 [node name="Charly" type="Area2D" unique_id=1176479466]
-position = Vector2(600, 400)
 script = ExtResource("1_nn7e4")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=770592028]
-scale = Vector2(1.0, 1.0)
 sprite_frames = SubResource("SpriteFrames_3i3jt")
-animation = &"idle"
+animation = &"Hablando"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1981373026]
 scale = Vector2(1.1, 1.1)
@@ -89,7 +87,6 @@ shape = SubResource("RectangleShape2D_6ia0n")
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer" unique_id=2008241721]
 visible = false
 anchors_preset = 12
-anchor_left = 0.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -103,7 +100,10 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
 
 [node name="Label" type="Label" parent="CanvasLayer/PanelContainer" unique_id=1897955519]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.93, 0.93, 0.87, 1)
 theme_override_fonts/font = ExtResource("3_caveat")
 theme_override_font_sizes/font_size = 17
-theme_override_colors/font_color = Color(0.93, 0.93, 0.87, 1)
 autowrap_mode = 2
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
