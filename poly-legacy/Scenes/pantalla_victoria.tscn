@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://7clbkiyiklp"]
 
 [ext_resource type="Script" uid="uid://d0yw4yp6x5wt8" path="res://Scripts/menu_victoria.gd" id="1_victoria"]
-[ext_resource type="Texture2D" uid="uid://cdo2xsvd8lbfo" path="res://Assets/ImagenVictoria.png" id="2_imgvictoria"]
+[ext_resource type="Texture2D" uid="uid://bgck167qheux6" path="res://Assets/Victoria.png" id="2_imgvictoria"]
 [ext_resource type="FontFile" uid="uid://dolbx7jvjeds2" path="res://Assets/Fonts/Schoolbell-Regular.ttf" id="2_schoolbell"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn"]

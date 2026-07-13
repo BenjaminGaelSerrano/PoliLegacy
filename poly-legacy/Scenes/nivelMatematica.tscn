@@ -1,24 +1,51 @@
 [gd_scene format=3 uid="uid://cnivelmate001"]
 
-[ext_resource type="Texture2D" uid="uid://dbapi018k37k1" path="res://Assets/MapaGodotLevel1.png" id="1_nm"]
+[ext_resource type="Texture2D" uid="uid://cf6xfqowh6tep" path="res://Assets/MapaMatematica.png" id="1_nm"]
 [ext_resource type="PackedScene" uid="uid://cp200vyf0nbid" path="res://Scenes/Jugador.tscn" id="2_nm"]
-[ext_resource type="PackedScene" uid="uid://cmateboss0001" path="res://Scenes/profeMateBoss.tscn" id="3_nm"]
-[ext_resource type="PackedScene" uid="uid://dl7m5tpq0c2fj" path="res://Scenes/Inventario.tscn" id="4_nm"]
+[ext_resource type="PackedScene" uid="uid://blsgxlgp1pfkp" path="res://Scenes/profeMateBoss.tscn" id="3_nm"]
+[ext_resource type="PackedScene" uid="uid://deev17apvwgh4" path="res://Scenes/Inventario.tscn" id="4_nm"]
 [ext_resource type="PackedScene" uid="uid://0845v8ymeqyl" path="res://Scenes/MenuPausa.tscn" id="5_nm"]
 [ext_resource type="PackedScene" uid="uid://bsrvinv0tqkau" path="res://Scenes/MenuMuerte.tscn" id="6_nm"]
-[ext_resource type="Script" path="res://Scripts/quizMatematica.gd" id="7_nm"]
+[ext_resource type="Script" uid="uid://bmpda4os3unh8" path="res://Scripts/quizMatematica.gd" id="7_nm"]
 
 [sub_resource type="RectangleShape2D" id="RectShape_top"]
-size = Vector2(1600, 50)
+size = Vector2(1354, 50)
 
 [sub_resource type="RectangleShape2D" id="RectShape_bottom"]
-size = Vector2(1600, 50)
+size = Vector2(1354, 50)
 
 [sub_resource type="RectangleShape2D" id="RectShape_left"]
-size = Vector2(50, 1600)
+size = Vector2(50, 1354)
 
 [sub_resource type="RectangleShape2D" id="RectShape_right"]
-size = Vector2(50, 1600)
+size = Vector2(50, 1354)
+
+[sub_resource type="RectangleShape2D" id="RectShape_escritorio_profe"]
+size = Vector2(419, 149)
+
+[sub_resource type="RectangleShape2D" id="RectShape_obj_der"]
+size = Vector2(190, 139)
+
+[sub_resource type="RectangleShape2D" id="RectShape_obj_vert"]
+size = Vector2(67, 283)
+
+[sub_resource type="RectangleShape2D" id="RectShape_banco_f1_izq"]
+size = Vector2(94, 107)
+
+[sub_resource type="RectangleShape2D" id="RectShape_banco_f1_cen"]
+size = Vector2(94, 107)
+
+[sub_resource type="RectangleShape2D" id="RectShape_banco_f1_der"]
+size = Vector2(93, 107)
+
+[sub_resource type="RectangleShape2D" id="RectShape_banco_f2_izq"]
+size = Vector2(87, 111)
+
+[sub_resource type="RectangleShape2D" id="RectShape_banco_f2_cen"]
+size = Vector2(83, 106)
+
+[sub_resource type="RectangleShape2D" id="RectShape_banco_f2_der"]
+size = Vector2(88, 112)
 
 [node name="NivelMatematica" type="Node2D" unique_id=700001]
 
@@ -26,34 +53,92 @@ size = Vector2(50, 1600)
 texture = ExtResource("1_nm")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=700003]
-position = Vector2(0, -800)
+position = Vector2(0, -652)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=700004 groups=["limites"]]
+position = Vector2(17, 262)
 shape = SubResource("RectShape_top")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=700005]
-position = Vector2(0, 800)
+position = Vector2(0, 652)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=700006 groups=["limites"]]
+position = Vector2(55, -62)
 shape = SubResource("RectShape_bottom")
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=700007]
-position = Vector2(-800, 0)
+position = Vector2(-652, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" unique_id=700008 groups=["limites"]]
+position = Vector2(121, -21)
 shape = SubResource("RectShape_left")
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="." unique_id=700009]
-position = Vector2(800, 0)
+position = Vector2(652, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4" unique_id=700010 groups=["limites"]]
+position = Vector2(-124, 52)
 shape = SubResource("RectShape_right")
 
+[node name="EscritorioProfe" type="StaticBody2D" parent="." unique_id=700030]
+position = Vector2(-61, -466)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EscritorioProfe" unique_id=700031]
+shape = SubResource("RectShape_escritorio_profe")
+
+[node name="ObjDerechaMedia" type="StaticBody2D" parent="." unique_id=700032]
+position = Vector2(255, -331)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ObjDerechaMedia" unique_id=700033]
+shape = SubResource("RectShape_obj_der")
+
+[node name="ObjVerticalDer" type="StaticBody2D" parent="." unique_id=700034]
+position = Vector2(528, 7)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ObjVerticalDer" unique_id=700035]
+shape = SubResource("RectShape_obj_vert")
+
+[node name="BancoF1Izq" type="StaticBody2D" parent="." unique_id=700036]
+position = Vector2(-263, -109)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BancoF1Izq" unique_id=700037]
+shape = SubResource("RectShape_banco_f1_izq")
+
+[node name="BancoF1Centro" type="StaticBody2D" parent="." unique_id=700038]
+position = Vector2(-14, -109)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BancoF1Centro" unique_id=700039]
+shape = SubResource("RectShape_banco_f1_cen")
+
+[node name="BancoF1Der" type="StaticBody2D" parent="." unique_id=700040]
+position = Vector2(255, -109)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BancoF1Der" unique_id=700041]
+shape = SubResource("RectShape_banco_f1_der")
+
+[node name="BancoF2Izq" type="StaticBody2D" parent="." unique_id=700042]
+position = Vector2(-279, 244)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BancoF2Izq" unique_id=700043]
+shape = SubResource("RectShape_banco_f2_izq")
+
+[node name="BancoF2Centro" type="StaticBody2D" parent="." unique_id=700044]
+position = Vector2(-12, 208)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BancoF2Centro" unique_id=700045]
+shape = SubResource("RectShape_banco_f2_cen")
+
+[node name="BancoF2Der" type="StaticBody2D" parent="." unique_id=700046]
+position = Vector2(258, 245)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BancoF2Der" unique_id=700047]
+shape = SubResource("RectShape_banco_f2_der")
+
 [node name="Jugador" parent="." unique_id=700011 instance=ExtResource("2_nm")]
-position = Vector2(0, 650)
+position = Vector2(0, 500)
 
 [node name="ProfeMateBoss" parent="." unique_id=700012 instance=ExtResource("3_nm")]
-position = Vector2(0, -500)
+position = Vector2(-61, -350)
 
 [node name="Inventario" parent="." unique_id=700013 instance=ExtResource("4_nm")]
 
@@ -69,8 +154,8 @@ script = ExtResource("7_nm")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color(0, 0, 0, 0.78)
 mouse_filter = 2
+color = Color(0, 0, 0, 0.78)
 
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer" unique_id=700018]
 anchors_preset = 8
@@ -88,35 +173,34 @@ layout_mode = 2
 theme_override_constants/separation = 12
 
 [node name="Label" type="Label" parent="CanvasLayer/PanelContainer/VBoxContainer" unique_id=700020]
-layout_mode = 2
 custom_minimum_size = Vector2(680, 90)
+layout_mode = 2
 theme_override_font_sizes/font_size = 18
-autowrap_mode = 3
 text = "Pregunta"
+autowrap_mode = 3
 
 [node name="Button" type="Button" parent="CanvasLayer/PanelContainer/VBoxContainer" unique_id=700021]
-layout_mode = 2
 custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
 theme_override_font_sizes/font_size = 17
 text = "A) ..."
 
 [node name="Button2" type="Button" parent="CanvasLayer/PanelContainer/VBoxContainer" unique_id=700022]
-layout_mode = 2
 custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
 theme_override_font_sizes/font_size = 17
 text = "B) ..."
 
 [node name="Button3" type="Button" parent="CanvasLayer/PanelContainer/VBoxContainer" unique_id=700023]
-layout_mode = 2
 custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
 theme_override_font_sizes/font_size = 17
 text = "C) ..."
 
 [node name="Label2" type="Label" parent="CanvasLayer/PanelContainer/VBoxContainer" unique_id=700024]
-layout_mode = 2
 custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
 theme_override_font_sizes/font_size = 16
-text = ""
 autowrap_mode = 3
 
 [connection signal="pressed" from="CanvasLayer/PanelContainer/VBoxContainer/Button" to="CanvasLayer" method="_onBtnAPressed"]
