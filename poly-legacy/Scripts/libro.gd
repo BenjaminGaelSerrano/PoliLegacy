@@ -4,7 +4,7 @@ extends Node2D
 Las fracciones representan partes de un entero. El numerador indica cuántas partes tomamos y el denominador en cuántas está dividido el total. Para sumar fracciones con distinto denominador hay que encontrar el mínimo común múltiplo.
 Una ecuación es una igualdad con una incógnita, generalmente llamada 'x'. Para resolverla hay que despejar la variable haciendo la misma operación a ambos lados: si tenés x+3=7, restás 3 en los dos lados y obtenés x=4.
 El orden de las operaciones es fundamental: primero paréntesis, después potencias, luego multiplicación y división de izquierda a derecha, y por último suma y resta de izquierda a derecha."
-const ICONO = preload("res://Assets/LibroProyectil (2).png")
+const ICONO = preload("res://Assets/IconoLibro.png")
 @onready var apretarE=$Label
 @onready var panel=$CanvasLayer/PanelContainer
 @onready var tituloLabel=$CanvasLayer/PanelContainer/VBoxContainer/Titulo

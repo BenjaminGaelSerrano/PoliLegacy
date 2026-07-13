@@ -5,11 +5,11 @@
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_titulo"]
 atlas = ExtResource("2_img")
-region = Rect2(215, 70, 585, 130)
+region = Rect2(134, 46, 356, 82)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_panel"]
 atlas = ExtResource("2_img")
-region = Rect2(277, 223, 440, 341)
+region = Rect2(174, 135, 279, 209)
 
 [node name="MenuMuerte" type="CanvasLayer" unique_id=257181471]
 process_mode = 3
@@ -39,10 +39,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -292.0
-offset_top = -243.0
-offset_right = 293.0
-offset_bottom = -113.0
+offset_left = -178.0
+offset_top = -153.0
+offset_right = 178.0
+offset_bottom = -71.0
 texture = SubResource("AtlasTexture_titulo")
 
 [node name="Panel" type="TextureRect" parent="Menu" unique_id=1903479262]
@@ -52,47 +52,47 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -220.0
-offset_top = -93.0
-offset_right = 220.0
-offset_bottom = 248.0
+offset_left = -140.0
+offset_top = -56.0
+offset_right = 139.0
+offset_bottom = 153.0
 texture = SubResource("AtlasTexture_panel")
 
 [node name="Botones" type="VBoxContainer" parent="Menu/Panel" unique_id=996740474]
 layout_mode = 1
-offset_left = 61.0
-offset_top = 39.0
-offset_right = 430.0
-offset_bottom = 228.0
-theme_override_constants/separation = 15
+offset_left = 35.0
+offset_top = 26.0
+offset_right = 245.0
+offset_bottom = 138.0
+theme_override_constants/separation = 11
 
 [node name="Reintentar" type="Button" parent="Menu/Panel/Botones" unique_id=2106876635]
-custom_minimum_size = Vector2(0, 53)
+custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.98, 0.9, 0.65, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 0.75, 1)
 theme_override_colors/font_pressed_color = Color(0.75, 0.65, 0.35, 1)
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 16
 text = "Reintentar"
 flat = true
 
 [node name="MenuPrincipal" type="Button" parent="Menu/Panel/Botones" unique_id=1868906386]
-custom_minimum_size = Vector2(0, 53)
+custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.98, 0.9, 0.65, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 0.75, 1)
 theme_override_colors/font_pressed_color = Color(0.75, 0.65, 0.35, 1)
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 16
 text = "Menú principal"
 flat = true
 
 [node name="Salir" type="Button" parent="Menu/Panel/Botones" unique_id=116616408]
-custom_minimum_size = Vector2(0, 53)
+custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.98, 0.9, 0.65, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 0.75, 1)
 theme_override_colors/font_pressed_color = Color(0.75, 0.65, 0.35, 1)
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 16
 text = "Salir"
 flat = true
 
