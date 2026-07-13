@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cm54ke6q2lf84"
-path="res://.godot/imported/ImagenVictoria.png-67de6869d673f01c812a52237305bffe.ctex"
+uid="uid://br6oim0wyuesc"
+path="res://.godot/imported/proyectilMatematica1.png-19990d77e4af10719e06028f1dfc41f4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/ImagenVictoria.png"
-dest_files=["res://.godot/imported/ImagenVictoria.png-67de6869d673f01c812a52237305bffe.ctex"]
+source_file="res://Assets/proyectilMatematica1.png"
+dest_files=["res://.godot/imported/proyectilMatematica1.png-19990d77e4af10719e06028f1dfc41f4.ctex"]
 
 [params]
 

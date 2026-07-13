@@ -1,5 +1,5 @@
-extends Node2D
-const ProyectilGuada=preload("res://Scenes/proyectil_guada.tscn")
+extends CharacterBody2D
+const ProyectilGuada=preload("res://Scenes/proyectil_fiore.tscn")
 @onready var sprite=$AnimatedSprite2D
 @onready var barraVida=$ProgressBar
 @onready var timerInicio=$Timer
@@ -58,6 +58,8 @@ func reiniciar():
 		_iniciarCicloAtaque()
 func _physics_process(delta):
 	if muriendo or objetivo == null or not puedeMoverse or aturdido:
+		velocity = Vector2.ZERO
+		move_and_slide()
 		return
 	var velActual
 	if faseActual == 1:
@@ -65,7 +67,8 @@ func _physics_process(delta):
 	else:
 		velActual=velocidadFase2
 	var direccion=(objetivo.global_position - global_position).normalized()
-	position+=direccion * velActual * delta
+	velocity = direccion * velActual
+	move_and_slide()
 	sprite.flip_h=direccion.x < 0
 func _alTerminarTimerInicio():
 	var jug=get_tree().get_first_node_in_group("jugador")

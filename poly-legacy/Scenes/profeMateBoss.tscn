@@ -1,7 +1,10 @@
 [gd_scene format=3 uid="uid://blsgxlgp1pfkp"]
 
-[ext_resource type="Script" uid="uid://dfcqbuaxcbgqi" path="res://Scripts/profeMateBoss.gd" id="1_mate"]
+[ext_resource type="Script" path="res://Scripts/profeMateBoss.gd" id="1_mate"]
 [ext_resource type="Texture2D" uid="uid://dxnwm6nu0cqky" path="res://Assets/Profesor_Matematica.png" id="2_mate"]
+
+[sub_resource type="CircleShape2D" id="Circle_body"]
+radius = 48.0
 
 [sub_resource type="AtlasTexture" id="AT_atacar1"]
 atlas = ExtResource("2_mate")
@@ -131,8 +134,12 @@ radius = 55.0
 [sub_resource type="CircleShape2D" id="Circle_hitbox"]
 radius = 64.0
 
-[node name="ProfeMateBoss" type="Node2D" unique_id=600001 groups=["enemigos"]]
+[node name="ProfeMateBoss" type="CharacterBody2D" unique_id=600001 groups=["enemigos"]]
+collision_layer = 8
 script = ExtResource("1_mate")
+
+[node name="CollisionShape2D_body" type="CollisionShape2D" parent="." unique_id=600015]
+shape = SubResource("Circle_body")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=600002]
 scale = Vector2(1.5, 1.5)
