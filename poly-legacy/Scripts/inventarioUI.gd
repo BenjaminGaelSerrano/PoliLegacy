@@ -42,7 +42,6 @@ func _refrescar():
 				casilla.texture=load(icono)
 			else:
 				casilla.texture=null
-			casilla.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 			casilla.tooltip_text=datos.get("titulo", objeto["EspacioEnElInventario"])
 		else:
 			casilla.texture=null

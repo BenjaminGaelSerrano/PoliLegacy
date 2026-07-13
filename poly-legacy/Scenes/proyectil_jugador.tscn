@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ciqsw6ql4mitc" path="res://Assets/LibroProyectil (2).png" id="2_q9vbz"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0jf4d"]
-size = Vector2(32, 24)
+size = Vector2(35, 47)
 
 [node name="ProyectilJugador" type="Area2D" unique_id=308370533]
 collision_layer = 8
@@ -12,10 +12,12 @@ collision_mask = 5
 script = ExtResource("1_k7sm3")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1731465278]
-scale = Vector2(0.3, 0.3)
+position = Vector2(0, -2.1750002)
+scale = Vector2(0.3, 0.2893643)
 texture = ExtResource("2_q9vbz")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=282429023]
+position = Vector2(1.5, 11.5)
 shape = SubResource("RectangleShape2D_0jf4d")
 
 [node name="TimerVida" type="Timer" parent="." unique_id=105131881]

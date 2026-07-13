@@ -23,6 +23,7 @@ var escudos_restantes = 0
 var escudo_activo = false
 func _ready():
 	add_to_group("jugadores")
+	ManejadorJuego.transicionando = false
 	vida_actual = vida_max
 	_ajustar_limites_camara()
 	BusEventos.jefeDerrotado.connect(_al_derrotar_jefe)

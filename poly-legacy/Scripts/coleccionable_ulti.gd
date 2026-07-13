@@ -8,7 +8,6 @@ func _ready():
 	if Inventario.tieneItem("ulti_guada"):
 		queue_free()
 		return
-	sprite.play("idle")
 func _al_entrar_cuerpo(cuerpo):
 	if cuerpo.is_in_group("jugadores") and not recogido:
 		jugador_cerca=true

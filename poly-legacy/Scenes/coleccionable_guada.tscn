@@ -1,18 +1,7 @@
 [gd_scene format=3 uid="uid://chvcugrgugy2b"]
 
 [ext_resource type="Script" uid="uid://cnsalh0s4y5hk" path="res://Scripts/coleccionable_ulti.gd" id="1_v3qhe"]
-[ext_resource type="Texture2D" uid="uid://bugt7f8ekrbi6" path="res://icon.svg" id="2_m8tld"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_p5w2k"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_m8tld")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 5.0
-}]
+[ext_resource type="Texture2D" uid="uid://c7fi3lc83oju" path="res://Assets/LibroPotenciado (2).png" id="2_fjt3b"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_x6n0y"]
 radius = 48.0
@@ -20,12 +9,10 @@ radius = 48.0
 [node name="Coleccionable" type="Area2D" unique_id=1582986775]
 script = ExtResource("1_v3qhe")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=167722016]
-position = Vector2(-2.0000029, -5)
-scale = Vector2(0.7421875, 0.78125)
-sprite_frames = SubResource("SpriteFrames_p5w2k")
-animation = &"idle"
-autoplay = "idle"
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=89676396]
+position = Vector2(1, 2)
+scale = Vector2(0.24654692, 0.2353125)
+texture = ExtResource("2_fjt3b")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=916661217]
 shape = SubResource("CircleShape2D_x6n0y")

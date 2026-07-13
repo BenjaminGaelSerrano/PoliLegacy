@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://wnxmvfgytmfi"
-path="res://.godot/imported/pasilloFinal.png-873af41ac58fd00c53136fcd73996d89.ctex"
+path="res://.godot/imported/PasilloFinal.png-2a79aa150aac83b2eb2e711b41ccb46d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/pasilloFinal.png"
-dest_files=["res://.godot/imported/pasilloFinal.png-873af41ac58fd00c53136fcd73996d89.ctex"]
+source_file="res://Assets/PasilloFinal.png"
+dest_files=["res://.godot/imported/PasilloFinal.png-2a79aa150aac83b2eb2e711b41ccb46d.ctex"]
 
 [params]
 
