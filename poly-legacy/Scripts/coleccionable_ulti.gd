@@ -1,5 +1,5 @@
 extends Area2D
-@onready var sprite=$AnimatedSprite2D
+@onready var sprite=$Sprite2D
 @onready var aviso=$Aviso
 const ICONO=preload("res://Assets/LibroPotenciado (2).png")
 var jugador_cerca=false
@@ -24,6 +24,7 @@ func _input(event):
 func _recoger():
 	recogido=true
 	aviso.visible=false
+	sprite.visible=false
 	Inventario.agregarItem("ulti_guada", "habilidad", {"titulo": "Mapa", "icono": ICONO})
 	BusEventos.coleccionableObtenido.emit()
 	ManejadorJuego.pasarDeNivel()

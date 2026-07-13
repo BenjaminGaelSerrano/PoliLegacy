@@ -1,7 +1,7 @@
 extends Area2D
 @onready var sprite=$Sprite2D
 @onready var aviso=$Aviso
-const ICONO=preload("res://Assets/ColectibleNievas.png")
+const ICONO=preload("res://Assets/IconoEscudo.png")
 var jugador_cerca=false
 var recogido=false
 func _ready():
@@ -24,6 +24,7 @@ func _input(event):
 func _recoger():
 	recogido=true
 	aviso.visible=false
+	sprite.visible=false
 	Inventario.agregarItem("escudo_nievas", "habilidad", {"titulo": "Escudo de Nieva", "icono": ICONO})
 	BusEventos.coleccionableObtenido.emit()
 	ManejadorJuego.pasarDeNivel()
