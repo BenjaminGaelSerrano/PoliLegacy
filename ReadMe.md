@@ -2,45 +2,43 @@
 
 ## Descripción
 
-**Poli Legacy** es un videojuego desarrollado en Godot Engine 4.6 e inspirado en nuestra experiencia dentro del colegio. El nombre del proyecto está inspirado en el juego *Hogwarts Legacy*, adaptando la idea a un entorno escolar propio.
+**Poli Legacy** es un videojuego 2D desarrollado en **Godot Engine 4.6** con **GDScript**, ambientado en el **Instituto Politécnico Modelo (IPM)**, inspirado en nuestra experiencia dentro del colegio. El nombre del proyecto está inspirado en el juego *Hogwarts Legacy*, adaptando la idea a un entorno escolar propio.
 
-La propuesta consiste en recrear el edificio del colegio mediante dos mapas: uno correspondiente a la planta baja y otro al primer piso. A lo largo de la aventura, el jugador deberá recorrer distintas áreas del establecimiento, enfrentarse a desafíos y superar niveles inspirados en los diferentes años de cursada.
+La propuesta consiste en recorrer distintas aulas y pasillos del instituto, enfrentando en cada nivel a un profesor convertido en jefe (boss), cada uno temático de una materia distinta.
 
 ## Historia
 
-El juego estará dividido en 6 niveles, representando cada uno un año del colegio.
+El juego cuenta con un tutorial inicial y una progresión de niveles temáticos por materia, cada uno ambientado y diseñado según la asignatura correspondiente:
 
-Los primeros tres niveles se desarrollarán en la planta baja, mientras que los tres restantes tendrán lugar en el primer piso. En cada nivel habrá un jefe inspirado en profesores que marcaron nuestro recorrido académico, representando de forma divertida algunos de los desafíos que enfrentamos durante esos años.
+- **Tutorial**: introducción a los controles y mecánicas básicas del juego, guiada por el NPC **Charly**. No tiene boss.
+- **Nivel 1 – Geografía**: enfrentamiento contra la Profesora de Geografía.
+- **Nivel 2 – Electricidad**: enfrentamiento contra el Profesor Nievas.
+- **Nivel 3 – Matemática**: nivel final, enfrentamiento contra el Profesor de Matemática.
+
+Cada nivel recrea el aula temática correspondiente, con decoración, pizarrones y objetos propios de la materia.
 
 ## Jugabilidad
 
 Durante la partida, el jugador deberá:
 
-- Explorar distintas zonas del colegio.
-- Enfrentarse a profesores convertidos en jefes.
-- Resolver puzzles para avanzar.
-- Superar obstáculos y desafíos propios de cada nivel.
-- Conseguir objetos especiales al derrotar a cada jefe.
+- Explorar distintas zonas del instituto (pasillos y aulas).
+- Interactuar con NPCs, como Charly durante el tutorial.
+- Enfrentarse a profesores convertidos en jefes, cada uno con ataques propios de su materia.
+- Usar una habilidad especial (ultimate) tipo escudo eléctrico para protegerse de los ataques.
+- Conseguir un coleccionable único al derrotar a cada jefe.
 
-## Coleccionables y Puzzle Final
+## Interfaz
 
-Cada jefe derrotado entregará un coleccionable único. Estos objetos serán necesarios para resolver un puzzle final que funcionará como cierre de la historia.
+- **Menú de inicio**: `MenuInicio_main.tscn`.
+- **Menú de pausa**: diseñado con estética de hoja de carpeta/cuaderno escolar.
+- **Pantalla de victoria**: pantalla de cierre al completar el juego, con panel de resultados estilo hoja de examen.
 
-El objetivo será reunir los seis coleccionables obtenidos a lo largo de la aventura para desbloquear el desenlace del juego.
-
-## Distribución de los Niveles
-
-### Planta Baja
-
-- Nivel 1: Primer año
-- Nivel 2: Segundo año
-- Nivel 3: Tercer año
-
-### Primer Piso
-
-- Nivel 4: Cuarto año
-- Nivel 5: Quinto año
-- Nivel 6: Sexto año
+## Estructura del Proyecto
+- poly-legacy/
+- └── Assets/           # Sprites, escenarios, íconos y UI del juego
+- project.godot          # Configuración principal del proyecto en Godot
+- MenuInicio_main.tscn   # Escena del menú de inicio
+- icon.svg               # Ícono del proyecto
 
 ## Tecnologías Utilizadas
 
@@ -52,7 +50,3 @@ El objetivo será reunir los seis coleccionables obtenidos a lo largo de la aven
 - Benjamin Serrano
 - Franco Marotta
 - Luciano Rojas
-
-## Estado del Proyecto
-
-En desarrollo.
