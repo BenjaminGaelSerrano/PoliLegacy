@@ -37,8 +37,17 @@ func _physics_process(delta):
 		velocidad_actual = velocidad_fase2
 	var direccion = (objetivo.global_position - global_position).normalized()
 	position += direccion * velocidad_actual * delta
-	if direccion.x != 0:
-		sprite.flip_h = direccion.x < 0
+	_actualizar_animacion(direccion)
+func _actualizar_animacion(direccion):
+	if sprite.animation == "recibir_danio" and sprite.is_playing():
+		return
+	var anim = ""
+	if abs(direccion.x) > abs(direccion.y):
+		anim = "costado derecho" if direccion.x > 0 else "costado_izquierda"
+	else:
+		anim = "frente" if direccion.y > 0 else "espalda"
+	if sprite.animation != anim:
+		sprite.play(anim)
 func _al_terminar_timer_inicio():
 	var jugador_nodo = null
 	var camara_jugador = null
@@ -74,7 +83,7 @@ func _al_terminar_timer_golpe():
 func _golpear():
 	if objetivo == null or muriendo or aturdido:
 		return
-	sprite.play("atacar")
+	sprite.play("idle")
 	objetivo.recibir_danio(danio_contacto)
 	_aturdir()
 func _aturdir():
@@ -106,5 +115,5 @@ func _morir():
 func _al_terminar_animacion():
 	if muriendo:
 		return
-	if sprite.animation == "atacar" or sprite.animation == "recibir_danio":
+	if sprite.animation == "recibir_danio":
 		sprite.play("idle")

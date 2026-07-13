@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cnhj56ar8fxs5" path="res://Scripts/jugador.gd" id="1_a4se9"]
 [ext_resource type="Texture2D" uid="uid://c4ugnc4f3l8ch" path="res://Assets/PersonajeIPM (2).png" id="2_es7oc"]
 [ext_resource type="Script" uid="uid://1pi5e4686150" path="res://Scripts/movimiento_jugador.gd" id="2_g1u6r"]
-[ext_resource type="Texture2D" uid="uid://bugt7f8ekrbi6" path="res://icon.svg" id="3_z5p0c"]
+[ext_resource type="Texture2D" uid="uid://tnp3uidxnn7g" path="res://Assets/ColectibleNievas.png" id="3_z5p0c"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e13yb"]
 atlas = ExtResource("2_es7oc")
