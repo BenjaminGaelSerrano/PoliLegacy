@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://8efsmyhu5xv2" path="res://Scripts/menu_inicio.gd" id="1_menuinicio"]
 [ext_resource type="Texture2D" uid="uid://bauwf1s0qvoxn" path="res://Assets/WhatsApp Image 2026-07-13 at 4.01.33 PM.jpeg" id="2_l5kx3"]
+[ext_resource type="Texture2D" uid="uid://b5ymt77la3pdd" path="res://Assets/logoJuego.png" id="3_haodl"]
 
 [node name="MenuInicio" type="Control" unique_id=1088715518]
 layout_mode = 3
@@ -20,6 +21,14 @@ offset_right = 1376.0
 offset_bottom = 650.0
 texture = ExtResource("2_l5kx3")
 
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=209567707]
+layout_mode = 0
+offset_left = 166.0
+offset_top = -60.0
+offset_right = 990.0
+offset_bottom = 243.0
+texture = ExtResource("3_haodl")
+
 [node name="Botones" type="VBoxContainer" parent="." unique_id=740902717]
 layout_mode = 1
 anchors_preset = 8
@@ -27,10 +36,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -110.0
-offset_top = 209.0
-offset_right = 110.0
-offset_bottom = 349.0
+offset_left = -106.0
+offset_top = 206.0
+offset_right = 114.0
+offset_bottom = 346.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 20
